@@ -1,0 +1,983 @@
+2025-03-13T15:06:28.264Z  INFO warp::warp_service: Starting WarpService pid=14
+2025-03-13T15:06:28.264Z  INFO warp::warp_service: Version: 2025.1.861.0
+2025-03-13T15:06:28.301Z DEBUG warp_settings::raw_settings: Loading settings from file "/var/lib/cloudflare-warp/settings.json"
+2025-03-13T15:06:28.302Z  INFO warp_settings::manager: User preferences not loaded e=No such file or directory (os error 2)
+2025-03-13T15:06:28.302Z DEBUG warp_settings::raw_settings: Loading consumer settings from file "/var/lib/cloudflare-warp/consumer-settings.json"
+2025-03-13T15:06:28.302Z  INFO warp_settings::manager: Consumer preferences not loaded e=No such file or directory (os error 2)
+2025-03-13T15:06:28.308Z DEBUG warp_settings::manager: Starting local policy file watch parent_path="/var/lib/cloudflare-warp"
+2025-03-13T15:06:28.309Z  WARN network_info::linux::dns_manager::dns_owner: Could not determine resolv.conf file owner: No comment line contained an owner slug
+2025-03-13T15:06:28.322Z DEBUG warp::warp_service: Main loop refactor feature enabled
+2025-03-13T15:06:28.322Z DEBUG actor_watchdog: Initializing watchdog actor
+2025-03-13T15:06:28.322Z DEBUG watchdog: warp::watchdog: Kicking off watchdog
+2025-03-13T15:06:28.323Z DEBUG actor_alternate_network: Initializing alternate network actor
+2025-03-13T15:06:28.323Z DEBUG actor_main_loop_compat: Initializing main loop compat actor
+2025-03-13T15:06:28.323Z DEBUG actor_statistics: Initializing statistics actor
+2025-03-13T15:06:28.323Z DEBUG actor_connectivity: Initializing connectivity actor
+2025-03-13T15:06:28.323Z DEBUG actor_remote_dex_command: Initializing remote DEX command actor
+2025-03-13T15:06:28.323Z DEBUG actor_device_state: Initializing device state actor
+2025-03-13T15:06:28.323Z DEBUG actor_root_ca: Initializing root-ca actor
+2025-03-13T15:06:28.323Z DEBUG actor_root_ca: Sleeping for 15s to allow main loop boot-up
+2025-03-13T15:06:28.324Z  INFO main_loop: warp_net::ipc: Bound ipc socket name="cloudflare-warp/warp_service" path="/run/cloudflare-warp/warp_service"
+2025-03-13T15:06:28.324Z  INFO main_loop: warp::warp_service: Warp IPC listening on "cloudflare-warp/warp_service"
+2025-03-13T15:06:28.324Z  INFO firewall::engine: Firewall engine running
+2025-03-13T15:06:28.329Z DEBUG network_info::linux::power_notifier: Initializing dbus connection
+2025-03-13T15:06:28.333Z  WARN main_loop: warp::warp_service: Failed to load Registration error=OsError(Os { code: 2, kind: NotFound, message: "No such file or directory" })
+2025-03-13T15:06:28.442Z DEBUG warp_api_client::addresses: Caching initial API IPs consumer=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3] teams=[162.159.137.105, 162.159.138.105, 2606:4700:7::a29f:8a69, 2606:4700:7::a29f:8969]
+2025-03-13T15:06:28.443Z DEBUG warp_api_client::client::ops: Sending API request GET zero-trust-client.cloudflareclient.com./v0/client_config
+2025-03-13T15:06:28.443Z DEBUG warp_api_client::client::ops: Sending API request GET api.cloudflareclient.com./v0/client_config
+2025-03-13T15:06:28.478Z DEBUG run: warp_settings::manager: LayerManager update: NetworkDefaults(NetworkDefaults { split_config: Some(Exclude { ips: [(10.0.0.0/8, None), (100.64.0.0/10, None), (169.254.0.0/16, None), (172.16.0.0/12, None), (192.0.0.0/24, None), (192.168.0.0/16, None), (224.0.0.0/24, None), (240.0.0.0/4, None), (239.255.255.250/32, None), (255.255.255.255/32, None), (fe80::/10, None), (fd00::/8, None), (ff01::/16, None), (ff02::/16, None), (ff03::/16, None), (ff04::/16, None), (ff05::/16, None), (fc00::/7, None), (17.249.0.0/16, None), (17.252.0.0/16, None), (17.57.144.0/22, None), (17.188.128.0/18, None), (17.188.20.0/23, None), (2620:149:a44::/48, None), (2403:300:a42::/48, None), (2403:300:a51::/48, None), (2a01:b740:a42::/48, None)], hosts: [] }) })
+2025-03-13T15:06:28.478Z DEBUG main_loop: warp::warp_service: Checking for registration vs settings account mismatch reg_is_teams=false settings_is_teams=false reg_org=None settings_org=None
+2025-03-13T15:06:28.479Z  INFO firewall::engine: Firewall stopped
+2025-03-13T15:06:28.479Z  INFO main_loop: warp::warp_service: New User Settings
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: SettingsUpdated
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: SettingsUpdated
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service: update_settings: no restart required
+2025-03-13T15:06:28.479Z  INFO warp::warp_service: Spawning registration changed IPC loop
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:06:28.479Z  INFO main_loop: warp::warp_service: WARP status: Unable(RegistrationMissing)
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Unable(RegistrationMissing)
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Unable(RegistrationMissing)
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="settings_changed"
+2025-03-13T15:06:28.479Z DEBUG main_loop: warp::warp_service: Checking for registration vs settings account mismatch reg_is_teams=false settings_is_teams=false reg_org=None settings_org=None
+2025-03-13T15:06:28.479Z  INFO firewall::engine: Firewall stopped
+2025-03-13T15:06:28.480Z  INFO main_loop: warp::warp_service: User Settings Changed: {}
+2025-03-13T15:06:28.480Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: SettingsUpdated
+2025-03-13T15:06:28.480Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: SettingsUpdated
+2025-03-13T15:06:28.480Z DEBUG main_loop: warp::warp_service: update_settings: no restart required
+2025-03-13T15:06:30.162Z  WARN warp_net::ipc::unix: Failed to get path for client error="return code = -1, errno = 13, message = 'Permission denied'" pid=59
+2025-03-13T15:06:30.162Z  WARN warp_net::ipc::unix: Failed to get path for client error="return code = -1, errno = 13, message = 'Permission denied'" pid=59
+2025-03-13T15:06:30.162Z  INFO warp::warp_service::ipc_loop: IPC: new connection exec_context=Regular process_name="<Unknown>" pid=59
+2025-03-13T15:06:30.163Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: 16f16456-9c0f-464a-a289-67389a21d6c3; GetAppSettings
+2025-03-13T15:06:30.164Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: bc68db18-c767-4a08-ac71-bb4b27b1eacb; GetAccount
+2025-03-13T15:06:30.164Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc response: bc68db18-c767-4a08-ac71-bb4b27b1eacb; Missing registration. Try running: "warp-cli registration new"
+2025-03-13T15:06:30.164Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: 2da85cc8-fd7a-494c-8188-0b3b8ec40bdb; NewRegistration
+2025-03-13T15:06:30.164Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: RegistrationInProgress
+2025-03-13T15:06:30.164Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: RegistrationInProgress
+2025-03-13T15:06:30.164Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="registration_change"
+2025-03-13T15:06:30.164Z DEBUG warp::warp_service::ipc_handlers: Sending IPC update: ConfigurationUpdated
+2025-03-13T15:06:30.164Z DEBUG warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: ConfigurationUpdated
+2025-03-13T15:06:30.165Z ERROR utilities::device_info::linux: Failed to load SMBiosData error=Os { code: 2, kind: NotFound, message: "No such file or directory" }
+2025-03-13T15:06:30.165Z DEBUG warp_api_client::apis::registration: New registration auth_method=Consumer
+2025-03-13T15:06:30.165Z DEBUG warp_api_client::client: Sending API request POST https://api.cloudflareclient.com.//v0/reg
+2025-03-13T15:06:31.458Z DEBUG warp_api_endpoints::payloads: Warp endpoint override ports ports=[2408, 500, 1701, 4500]
+2025-03-13T15:06:31.458Z DEBUG main_loop: warp_api_client::executor: Returning API response for NewRegistration request_id=2da85cc8-fd7a-494c-8188-0b3b8ec40bdb
+2025-03-13T15:06:31.458Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="api_responses"
+2025-03-13T15:06:31.458Z DEBUG run: warp_settings::manager: LayerManager update: NetworkPolicy(Some(NetworkPolicySettings { onboarding: None, operation_mode: None, disable_auto_fallback: None, fallback_domains: None, proxy_port: None, split_config: None, gateway_id: None, support_url: None, allow_mode_switch: None, switch_locked: None, auto_connect: None, captive_portal: None, organization: None, allow_updates: None, allowed_to_leave: None, profile_id: None, lan_allow_settings: Some(LanAllowSettings { minutes: None, subnet_size: SubnetSize(24) }), warp_tunnel_protocol: Some(Masque) }))
+2025-03-13T15:06:31.458Z DEBUG main_loop: warp::warp_service::api_handlers: Registration updated current_registration=NewInProgress disposition=UpdateOnly
+2025-03-13T15:06:31.458Z DEBUG main_loop: warp::warp_service::api_handlers: Invalidating existing posture check scheduler on registration update
+2025-03-13T15:06:31.458Z DEBUG main_loop: warp::warp_service::api_handlers: Registration updated 0.00 hours old, refresh at 2025-03-14 15:06:31.458173638 +00:00:00
+Registration: f7ab926c-8404-48b7-952c-9958bc384875
+Device Identifiers: System User
+Auth Method: Consumer
+Public key: d08c04b2eb936e69ed74726ad72d6e1e6561ef662c430dcf488c249bebd7c230
+Interface: WarpEndpoint { v4: 172.16.0.2, v6: 2606:4700:110:8c1d:3989:12c4:2bf9:10a6 }
+Endpoints: [WarpSocketAddrPair { v4: 162.159.192.4:2408, v6: [2606:4700:d0::a29f:c004]:2408 }, WarpSocketAddrPair { v4: 162.159.192.4:500, v6: [2606:4700:d0::a29f:c004]:500 }, WarpSocketAddrPair { v4: 162.159.192.4:1701, v6: [2606:4700:d0::a29f:c004]:1701 }, WarpSocketAddrPair { v4: 162.159.192.4:4500, v6: [2606:4700:d0::a29f:c004]:4500 }]
+Subnet CIDRS: None
+
+Account: Free { id: AccountId(a0c641db-bcf9-4ce8-95df-26a8e84d2590), license: "AXx1k905-mK0CI819-16eNRF97" }
+
+2025-03-13T15:06:31.458Z  INFO main_loop: warp_storage::registration: Saving registration to active cache config_name=None username="WARPSecret"
+2025-03-13T15:06:31.463Z DEBUG warp::warp_service::ipc_handlers: Sending IPC update: ConfigurationUpdated
+2025-03-13T15:06:31.463Z  INFO firewall::engine: Firewall stopped
+2025-03-13T15:06:31.463Z DEBUG warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: ConfigurationUpdated
+2025-03-13T15:06:31.463Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ power_state=None disconnect_reason=None
+2025-03-13T15:06:31.463Z  WARN main_loop: warp::warp_service: Disconnecting, but reason is unknown
+2025-03-13T15:06:31.463Z DEBUG main_loop: warp::warp_service: Checking for registration vs settings account mismatch reg_is_teams=false settings_is_teams=false reg_org=None settings_org=None
+2025-03-13T15:06:31.463Z  INFO firewall::engine: Firewall stopped
+2025-03-13T15:06:31.464Z  INFO main_loop: warp::warp_service: User Settings Changed: {warp_tunnel_protocol: "wireguard"->"masque", }
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: SettingsUpdated
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: SettingsUpdated
+2025-03-13T15:06:31.464Z  INFO main_loop: warp::warp_service: New user settings modify the tunnel protocol, rotating keys new_settings.warp_tunnel_protocol=Masque new_key_data=RegistrationTunnelKeys { key_type: NistP256, tunnel_type: Masque }
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp_api_client::executor: Spawning API request for RotateKeys request_id=ea570149-0c16-4370-abfe-082886b741c3
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service: update_settings: no restart required
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc response: 2da85cc8-fd7a-494c-8188-0b3b8ec40bdb; Success
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:06:31.464Z  INFO main_loop: warp::warp_service: WARP status: Disconnected(Manual)
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Disconnected(Manual)
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Disconnected(Manual)
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="settings_changed"
+2025-03-13T15:06:31.464Z DEBUG warp_api_client::client: Sending API request PATCH https://api.cloudflareclient.com.//v0/reg/f7ab926c-8404-48b7-952c-9958bc384875
+2025-03-13T15:06:31.464Z DEBUG main_loop: warp::warp_service: Checking for registration vs settings account mismatch reg_is_teams=false settings_is_teams=false reg_org=None settings_org=None
+2025-03-13T15:06:31.464Z  INFO firewall::engine: Firewall stopped
+2025-03-13T15:06:31.464Z  WARN warp::warp_service::ipc_loop: RX IPC task failed error=OsError(Os { code: 104, kind: ConnectionReset, message: "Connection reset by peer" })
+2025-03-13T15:06:31.465Z ERROR warp::warp_service::ipc_loop: IPC connection ended with error OsError(Os { code: 104, kind: ConnectionReset, message: "Connection reset by peer" })
+2025-03-13T15:06:31.465Z  INFO main_loop: warp::warp_service: User Settings Changed: {}
+2025-03-13T15:06:31.465Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: SettingsUpdated
+2025-03-13T15:06:31.465Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: SettingsUpdated
+2025-03-13T15:06:31.465Z  INFO main_loop: warp::warp_service: Settings and Registration determined that a key rotation was needed but there exists a pending API call that satisfies this constraint. Skipping for now.
+2025-03-13T15:06:31.465Z DEBUG main_loop: warp::warp_service: update_settings: no restart required
+2025-03-13T15:06:31.465Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="registration_change"
+2025-03-13T15:06:31.465Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ power_state=None disconnect_reason=None
+2025-03-13T15:06:31.465Z  WARN main_loop: warp::warp_service: Disconnecting, but reason is unknown
+2025-03-13T15:06:31.469Z  WARN warp_net::ipc::unix: Failed to get path for client error="return code = -1, errno = 13, message = 'Permission denied'" pid=60
+2025-03-13T15:06:31.469Z  WARN warp_net::ipc::unix: Failed to get path for client error="return code = -1, errno = 13, message = 'Permission denied'" pid=60
+2025-03-13T15:06:31.469Z  INFO warp::warp_service::ipc_loop: IPC: new connection exec_context=Regular process_name="<Unknown>" pid=60
+2025-03-13T15:06:31.470Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: b4e0257c-1080-419a-88a6-36f3988b24aa; GetAppSettings
+2025-03-13T15:06:31.470Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: 6c8c7f86-33cf-4f34-bb5c-87cc3ad90851; GetAccount
+2025-03-13T15:06:31.471Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc response: 6c8c7f86-33cf-4f34-bb5c-87cc3ad90851; Registration: ID: f7ab926c-8404-48b7-952c-9958bc384875; Public Key: d08c04b2eb936e69ed74726ad72d6e1e6561ef662c430dcf488c249bebd7c230; Managed: false; Account: Free { id: AccountId(a0c641db-bcf9-4ce8-95df-26a8e84d2590), license: "AXx1k905-mK0CI819-16eNRF97" };Alternate networks: None
+2025-03-13T15:06:31.471Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: 6222905e-fbdc-47ab-986e-a0af658d851b; SetAlwaysOn(true)
+2025-03-13T15:06:31.471Z  INFO main_loop: structlog: event="UserToggledV0" toggle="on" warp_colo="none" warp_metal="none"
+2025-03-13T15:06:31.476Z DEBUG run: warp_settings::manager: LayerManager update: UserOverrides(<mutator>)
+2025-03-13T15:06:31.476Z DEBUG run: warp_settings::manager: UserOverrides updated: UserOverrides { version: None, always_on: Some(true), operation_mode: None, disable_for_wifi: None, disable_for_ethernet: None, disable_for_networks: None, families: None, dns_log_until: FutureSystemTime(None), gateway_id: None, onboarding: None, organization: None, split_config: None, fallback_domains: None, proxy_port: None, disable_connectivity_checks: None, override_api_endpoint: None, override_doh_endpoint: None, override_warp_endpoint: None, override_tunnel_mtu: None, qlog_log_until: FutureSystemTime(None) }
+2025-03-13T15:06:31.479Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc response: 6222905e-fbdc-47ab-986e-a0af658d851b; Success
+2025-03-13T15:06:31.479Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="settings_changed"
+2025-03-13T15:06:31.479Z DEBUG main_loop: warp::warp_service: Checking for registration vs settings account mismatch reg_is_teams=false settings_is_teams=false reg_org=None settings_org=None
+2025-03-13T15:06:31.479Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:31.479Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:31.479Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:31.479Z  INFO firewall::engine: Firewall starting
+2025-03-13T15:06:31.480Z  INFO warp::warp_service::ipc_loop: IPC connection ended
+2025-03-13T15:06:31.484Z  WARN warp_net::ipc::unix: Failed to get path for client error="return code = -1, errno = 13, message = 'Permission denied'" pid=76
+2025-03-13T15:06:31.484Z  WARN warp_net::ipc::unix: Failed to get path for client error="return code = -1, errno = 13, message = 'Permission denied'" pid=76
+2025-03-13T15:06:31.484Z  INFO warp::warp_service::ipc_loop: IPC: new connection exec_context=Regular process_name="<Unknown>" pid=76
+2025-03-13T15:06:31.558Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:31.558Z  INFO main_loop: warp::warp_service: User Settings Changed: {always_on: false->true, }
+2025-03-13T15:06:31.558Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: SettingsUpdated
+2025-03-13T15:06:31.558Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: SettingsUpdated
+2025-03-13T15:06:31.558Z  INFO main_loop: warp::warp_service: Settings and Registration determined that a key rotation was needed but there exists a pending API call that satisfies this constraint. Skipping for now.
+2025-03-13T15:06:31.558Z DEBUG main_loop: warp::warp_service: update_settings: no restart required
+2025-03-13T15:06:31.558Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:31.558Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:31.558Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:31.638Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:31.638Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ power_state=None disconnect_reason=None
+2025-03-13T15:06:31.638Z  WARN main_loop: warp::warp_service: Disconnecting, but reason is unknown
+2025-03-13T15:06:31.638Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: cf4764e1-e55b-4b3f-8a65-886dccb65f29; GetAppSettings
+2025-03-13T15:06:31.638Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:06:31.640Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:31.641Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:31.641Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:31.728Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:31.728Z  INFO main_loop:handle_command{cmd=Connect}: warp::warp_service: captive_portal_fw_until: Indefinitely
+2025-03-13T15:06:31.730Z DEBUG main_loop:handle_command{cmd=Connect}: warp::warp::proxying_dns: Using auto fallback: true
+2025-03-13T15:06:31.730Z  WARN main_loop:handle_command{cmd=Connect}: warp::warp::tunnel: Settings and Registration mismatch on tunnel protocol. Falling back to registration protocol. settings_proto=Masque reg_proto=Wireguard
+2025-03-13T15:06:31.731Z DEBUG main_loop: warp::warp::warp_connection: Current Network: IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T15:06:31.731Z  INFO main_loop: warp::warp::warp_connection: Starting Warp Connection operation_mode=Warp dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-13T15:06:31.731Z  INFO main_loop: warp::warp::tunnel: Initiate WARP connection protocol=Wireguard
+2025-03-13T15:06:31.731Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:06:31.731Z  INFO main_loop: warp::warp_service: WARP status: Connecting
+2025-03-13T15:06:31.731Z DEBUG firewall::change: Firewall allow tunnel ipv4=[162.159.192.4] ipv6=[2606:4700:d0::a29f:c004]
+2025-03-13T15:06:31.731Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connecting
+2025-03-13T15:06:31.731Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connecting
+2025-03-13T15:06:31.731Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: b64b213b-4100-47fc-9036-588ddffd8b31; GetAccount
+2025-03-13T15:06:31.731Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc response: b64b213b-4100-47fc-9036-588ddffd8b31; Registration: ID: f7ab926c-8404-48b7-952c-9958bc384875; Public Key: d08c04b2eb936e69ed74726ad72d6e1e6561ef662c430dcf488c249bebd7c230; Managed: false; Account: Free { id: AccountId(a0c641db-bcf9-4ce8-95df-26a8e84d2590), license: "AXx1k905-mK0CI819-16eNRF97" };Alternate networks: None
+2025-03-13T15:06:31.732Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc request: 49a8a661-647a-450f-ba3a-f88c7df56017; SetQlog(setting=Disabled)
+2025-03-13T15:06:31.732Z DEBUG run: warp_settings::manager: LayerManager update: UserOverrides(<mutator>)
+2025-03-13T15:06:31.732Z DEBUG run: warp_settings::manager: UserOverrides updated: UserOverrides { version: None, always_on: Some(true), operation_mode: None, disable_for_wifi: None, disable_for_ethernet: None, disable_for_networks: None, families: None, dns_log_until: FutureSystemTime(None), gateway_id: None, onboarding: None, organization: None, split_config: None, fallback_domains: None, proxy_port: None, disable_connectivity_checks: None, override_api_endpoint: None, override_doh_endpoint: None, override_warp_endpoint: None, override_tunnel_mtu: None, qlog_log_until: FutureSystemTime(None) }
+2025-03-13T15:06:31.736Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc response: 49a8a661-647a-450f-ba3a-f88c7df56017; Success
+2025-03-13T15:06:31.737Z  INFO warp::warp_service::ipc_loop: IPC connection ended
+2025-03-13T15:06:31.828Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:31.828Z DEBUG main_loop:connect_inner{protocol="wireguard"}: warp_edge::happy_eyeballs: Attempting Happy Eyeballs to 162.159.192.4:2408 / [2606:4700:d0::a29f:c004]:2408
+2025-03-13T15:06:31.829Z DEBUG main_loop:connect_inner{protocol="wireguard"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v6=[2606:4700:d0::a29f:c004]:2408 err=Connect(Os { code: 101, kind: NetworkUnreachable, message: "Network is unreachable" })
+2025-03-13T15:06:31.829Z DEBUG main_loop:connect_inner{protocol="wireguard"}: warp_edge::happy_eyeballs: Start racer 172.18.0.4:36879 ---> 162.159.192.4:2408
+2025-03-13T15:06:31.829Z DEBUG main_loop:connect_inner{protocol="wireguard"}: warp_edge::wireguard_tun: Handshaking wireguard with session tag affinity_tag=0
+2025-03-13T15:06:31.829Z DEBUG main_loop:connect_inner{protocol="wireguard"}: warp_edge::wireguard_tun: Sent handshake initiation to 162.159.192.4:2408
+2025-03-13T15:06:32.338Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:06:32.339Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T15:06:32.359Z DEBUG warp_api_endpoints::payloads: Warp endpoint override ports ports=[443, 500, 1701, 4500, 4443, 8443, 8095]
+2025-03-13T15:06:32.359Z DEBUG main_loop: warp_api_client::executor: Returning API response for RotateKeys request_id=ea570149-0c16-4370-abfe-082886b741c3
+2025-03-13T15:06:32.359Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="api_responses"
+2025-03-13T15:06:32.359Z DEBUG main_loop: warp::warp_service::api_handlers: Registration updated current_registration=Registered(reg=f7ab926c-8404-48b7-952c-9958bc384875) disposition=CheckAndUpdate
+2025-03-13T15:06:32.359Z DEBUG main_loop: warp::warp_service::api_handlers: Invalidating existing posture check scheduler on registration update
+2025-03-13T15:06:32.359Z DEBUG main_loop: warp::warp_service::api_handlers: Registration updated 0.00 hours old, refresh at 2025-03-14 15:06:32.359418538 +00:00:00
+Registration: f7ab926c-8404-48b7-952c-9958bc384875
+Device Identifiers: System User
+Auth Method: Consumer
+Public key: 3059301306072a8648ce3d020106082a8648ce3d03010703420004abe7719f5eedc186358be825305e198a0aa8ad8ea775be109266a6dad7f6dd752a71fe2b7c2a00be0edf8cb2a72eb5126bc25980196bd4c59a022e938cf6d32f
+Interface: WarpEndpoint { v4: 172.16.0.2, v6: 2606:4700:110:8c1d:3989:12c4:2bf9:10a6 }
+Endpoints: [WarpSocketAddrPair { v4: 162.159.198.1:443, v6: [2606:4700:103::1]:443 }, WarpSocketAddrPair { v4: 162.159.198.1:500, v6: [2606:4700:103::1]:500 }, WarpSocketAddrPair { v4: 162.159.198.1:1701, v6: [2606:4700:103::1]:1701 }, WarpSocketAddrPair { v4: 162.159.198.1:4500, v6: [2606:4700:103::1]:4500 }, WarpSocketAddrPair { v4: 162.159.198.1:4443, v6: [2606:4700:103::1]:4443 }, WarpSocketAddrPair { v4: 162.159.198.1:8443, v6: [2606:4700:103::1]:8443 }, WarpSocketAddrPair { v4: 162.159.198.1:8095, v6: [2606:4700:103::1]:8095 }]
+Subnet CIDRS: None
+
+Account: Free { id: AccountId(a0c641db-bcf9-4ce8-95df-26a8e84d2590), license: "AXx1k905-mK0CI819-16eNRF97" }
+
+2025-03-13T15:06:32.359Z  INFO main_loop: warp_storage::registration: Saving registration to active cache config_name=None username="WARPSecret"
+2025-03-13T15:06:32.364Z DEBUG warp::warp_service::ipc_handlers: Sending IPC update: ConfigurationUpdated
+2025-03-13T15:06:32.364Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:32.364Z DEBUG warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: ConfigurationUpdated
+2025-03-13T15:06:32.364Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:32.364Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:32.428Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:32.428Z  INFO main_loop: warp::warp_service: Aborting connection in progress
+2025-03-13T15:06:32.428Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ power_state=None disconnect_reason=None
+2025-03-13T15:06:32.428Z  WARN main_loop: warp::warp_service: Disconnecting, but reason is unknown
+2025-03-13T15:06:32.428Z DEBUG main_loop: warp::warp_service: Checking for registration vs settings account mismatch reg_is_teams=false settings_is_teams=false reg_org=None settings_org=None
+2025-03-13T15:06:32.428Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-13T15:06:32.428Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-13T15:06:32.488Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:32.488Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:32.488Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:32.488Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:32.538Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:32.538Z  INFO main_loop: warp::warp_service: User Settings Changed: {}
+2025-03-13T15:06:32.538Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC update: SettingsUpdated
+2025-03-13T15:06:32.538Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseUpdate: SettingsUpdated
+2025-03-13T15:06:32.538Z DEBUG main_loop: warp::warp_service: update_settings: no restart required
+2025-03-13T15:06:32.538Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:32.538Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:32.538Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:32.568Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:32.568Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ power_state=None disconnect_reason=None
+2025-03-13T15:06:32.568Z  WARN main_loop: warp::warp_service: Disconnecting, but reason is unknown
+2025-03-13T15:06:32.568Z DEBUG run: warp_settings::manager: LayerManager update: NetworkPolicy(Some(NetworkPolicySettings { onboarding: None, operation_mode: None, disable_auto_fallback: None, fallback_domains: None, proxy_port: None, split_config: None, gateway_id: None, support_url: None, allow_mode_switch: None, switch_locked: None, auto_connect: None, captive_portal: None, organization: None, allow_updates: None, allowed_to_leave: None, profile_id: None, lan_allow_settings: Some(LanAllowSettings { minutes: None, subnet_size: SubnetSize(24) }), warp_tunnel_protocol: Some(Masque) }))
+2025-03-13T15:06:32.568Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:06:32.570Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:06:32.570Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:06:32.570Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:06:32.618Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:32.618Z  INFO main_loop:handle_command{cmd=Connect}: warp::warp_service: captive_portal_fw_until: Indefinitely
+2025-03-13T15:06:32.620Z DEBUG main_loop:handle_command{cmd=Connect}: warp::warp::proxying_dns: Using auto fallback: true
+2025-03-13T15:06:32.621Z DEBUG main_loop: warp::warp::warp_connection: Current Network: IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T15:06:32.621Z  INFO main_loop: warp::warp::warp_connection: Starting Warp Connection operation_mode=Warp dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-13T15:06:32.621Z  INFO main_loop: warp::warp::tunnel: Initiate WARP connection protocol=Masque
+2025-03-13T15:06:32.621Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:06:32.621Z  INFO main_loop: warp::warp_service: WARP status: Connecting
+2025-03-13T15:06:32.621Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connecting
+2025-03-13T15:06:32.621Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connecting
+2025-03-13T15:06:32.621Z DEBUG firewall::change: Firewall allow tunnel ipv4=[162.159.198.1] ipv6=[2606:4700:103::1]
+2025-03-13T15:06:32.621Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="registration_change"
+2025-03-13T15:06:32.688Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:32.688Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Attempting Happy Eyeballs to 162.159.198.1:443 / [2606:4700:103::1]:443
+2025-03-13T15:06:32.688Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Start racer 172.18.0.4:46357 ---> 162.159.198.1:443
+2025-03-13T15:06:32.688Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Creating QUIC Client Config qlog_setting=Disabled idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 }
+2025-03-13T15:06:32.688Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Sending handshake initiation to 162.159.198.1:443
+2025-03-13T15:06:32.689Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v6=[2606:4700:103::1]:443 err=Connect(Os { code: 101, kind: NetworkUnreachable, message: "Network is unreachable" })
+2025-03-13T15:06:32.746Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Established QUIC connection with 162.159.198.1:443 scid=a9d4ac3167e715d9f740348233b2f1fa6827eecf
+2025-03-13T15:06:32.746Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=a9d4ac3167e715d9f740348233b2f1fa6827eecf}: warp_edge::h3_tun: Starting MASQUE proxy task idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 } keepalive_interval=4s
+2025-03-13T15:06:32.746Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Establishing MASQUE tunnel on existing QUIC connection scid=a9d4ac3167e715d9f740348233b2f1fa6827eecf endpoint=162.159.198.1:443
+2025-03-13T15:06:34.216Z DEBUG main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: Connected to 162.159.198.1:443
+2025-03-13T15:06:34.217Z  INFO main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: DNS resolver connection is being made inside of the tunnel
+2025-03-13T15:06:34.217Z DEBUG firewall::change: Firewall allow interface CloudflareWARP
+2025-03-13T15:06:34.278Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:34.289Z DEBUG firewall::change: Firewall allowing private IPs
+2025-03-13T15:06:34.349Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:06:34.350Z  INFO main_loop: warp::warp::proxying_dns: Initiate DNS connection
+2025-03-13T15:06:34.351Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 1, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:06:34.361Z DEBUG main_loop: warp::warp::proxying_dns: DNS TCP connection to Gateway DoH resolver was successful raced_ip=2606:4700:4700::1111
+2025-03-13T15:06:34.362Z DEBUG main_loop: dns_proxy::proxy: Creating DoH resolver config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 162.159.36.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 162.159.46.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1111]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1001]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } options=ResolverOpts { ndots: 1, timeout: 4s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: Some(10s), num_concurrent_reqs: 1, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-13T15:06:34.389Z DEBUG main_loop: warp::warp::proxying_dns: Connectivity Check resolved query for connectivity.cloudflareclient.com resolved_ips=[162.159.137.65, 162.159.138.65]
+2025-03-13T15:06:34.389Z DEBUG main_loop: warp::warp::proxying_dns: Acquiring bind semaphore available_permits=1
+2025-03-13T15:06:34.389Z DEBUG main_loop: warp::warp::proxying_dns: Binding UDP and TCP sockets dns_servers=[127.0.2.2, 127.0.2.3]
+2025-03-13T15:06:34.389Z DEBUG main_loop: warp::warp::proxying_dns: Successfully bound DNS listen sockets udp_sockets=2 tcp_sockets=2
+2025-03-13T15:06:34.390Z DEBUG main_loop: warp::warp::proxying_dns: Read system DNS configuration initial_dns_config=(ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }], None) }, ResolverOpts { ndots: 0, timeout: 5s, attempts: 2, rotate: false, check_names: true, edns0: false, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 2, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false })
+2025-03-13T15:06:34.390Z DEBUG main_loop: warp::warp::proxying_dns: Initializing DNS restore settings net.v4_ifaces=[eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)] net.v6_ifaces=[]
+2025-03-13T15:06:34.391Z DEBUG main_loop: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:06:34.391Z DEBUG warp::warp::proxying_dns: Starting DnsOverWarp task tun_address=172.16.0.2:0
+2025-03-13T15:06:34.391Z  INFO dns_proxy::proxy: Default fallbacks configured default_fallback_ips=[127.0.0.11:53] config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } sys_options=ResolverOpts { ndots: 0, timeout: 11s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 8, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-13T15:06:34.392Z DEBUG main_loop: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-13T15:06:34.508Z DEBUG main_loop: dns_proxy::resolver: Ending DoH connection stats=establish_time:2025-03-13 15:06:34.362473356 +00:00:00, ip:2606:4700:4700::1001, attempted_queries:1, successful_queries:1, certificate_errors:0, timeout_errors:0, no_connection_errors:0, proto_errors:0, io_errors:0, msg_errors:0
+2025-03-13T15:06:34.510Z DEBUG connectivity_check: Resolved connectivity-check.warp-svc. to [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:06:34.519Z DEBUG connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8a41, 2606:4700:7::a29f:8941, 162.159.138.65, 162.159.137.65]
+2025-03-13T15:06:34.536Z DEBUG do_trace_inner{host="engage.cloudflareclient.com" timeout=4s ips=[162.159.198.1:443] con_check_meta=None}: connectivity_check: fl=583f146
+h=engage.cloudflareclient.com
+ip=210.209.119.91
+ts=1741878393.947
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=off
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-13T15:06:34.552Z DEBUG do_trace_inner{host="connectivity.cloudflareclient.com" timeout=4s ips=[[2606:4700:7::a29f:8a41]:443, [2606:4700:7::a29f:8941]:443] con_check_meta=Some(TunnelInterface { interface_name: "CloudflareWARP" })}: connectivity_check: fl=23f787
+h=connectivity.cloudflareclient.com
+ip=2a09:bac5:3984:e6::17:313
+ts=1741878393.964
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=on
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-13T15:06:34.552Z DEBUG main_loop: warp::warp::connectivity_check: Trace status: Ok(TraceResult { metal_id: "23f787", colo: "HKG", ip: 2a09:bac5:3984:e6::17:313 })
+2025-03-13T15:06:34.554Z DEBUG main_loop: connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8a41, 2606:4700:7::a29f:8941, 162.159.137.65, 162.159.138.65]
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp::warp_connection: Connect finished
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp::warp_connection: start_status=Ok(())
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp_service: self.warp future resolved
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:06:34.554Z  INFO main_loop: warp::warp_service: WARP status: Connected
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connected
+2025-03-13T15:06:34.554Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connected
+2025-03-13T15:06:34.554Z DEBUG actor_statistics: Recording and resetting gauge context=RecordThenResetGaugeInfo { gauge_key: KeyName("conn_attempts_current"), histogram_key: KeyName("conn_attempts_all"), component: "happy_eyeballs" }
+2025-03-13T15:06:36.341Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:06:36.341Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+
+2025-03-13T15:06:36.341Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reapplying DNS settings when the list of DNS servers contains ourselves new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:06:36.341Z  INFO main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reinforcing old DNS settings old_info.dns_servers=[127.0.0.11:53] new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53]
+2025-03-13T15:06:36.341Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-13T15:06:36.342Z  WARN main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-13T15:06:36.342Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-13T15:06:36.343Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:06:36.344Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-13T15:06:36.450Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Skip notifying DNS changes as servers was empty or only contained our own advertised IPs. servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:06:43.323Z DEBUG actor_root_ca::handler: Starting root-ca actor loop
+2025-03-13T15:06:43.325Z DEBUG handle_registration_changed: root_ca::store: Done installing certificate(s) total=0
+2025-03-13T15:06:43.326Z DEBUG handle_registration_changed: root_ca::store: Done installing certificate(s) total=0
+2025-03-13T15:06:52.596Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:06:57.796Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:07:42.514Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:07:49.792Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:08:28.473Z DEBUG warp_api_client::client: Method: POST, Path: v0/f7ab926c-8404-48b7-952c-9958bc384875/observe_events, StructuredLogsEndpoint { device_id: "f7ab926c-8404-48b7-952c-9958bc384875", logs: Array [Object {"event": String("UserToggledV0"), "toggle": String("on"), "warp_colo": String("none"), "warp_metal": String("none"), "version": Number(0), "client_sample_rate": Number(1), "app_version": String("2025.1.861.0"), "os": String("Linux"), "os_version": String("5.15.167"), "timestamp": Number(1741878391471763), "session_id": String("7f563843-faa0-4bb1-8ef8-75e61a00a585")}] }
+2025-03-13T15:08:28.847Z ERROR warp_api_client::client: Failed API Request endpoint=StructuredLogsEndpoint { device_id: "f7ab926c-8404-48b7-952c-9958bc384875", logs: Array [Object {"event": String("UserToggledV0"), "toggle": String("on"), "warp_colo": String("none"), "warp_metal": String("none"), "version": Number(0), "client_sample_rate": Number(1), "app_version": String("2025.1.861.0"), "os": String("Linux"), "os_version": String("5.15.167"), "timestamp": Number(1741878391471763), "session_id": String("7f563843-faa0-4bb1-8ef8-75e61a00a585")}] } err=ApiFailure(500, ApiErrors { errors: [], other: {"messages": Array [], "success": Bool(false), "result": Null} })
+2025-03-13T15:08:34.343Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 6, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:09:13.387Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:09:21.787Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:10:10.985Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:10:17.784Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:10:34.337Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 7, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:11:02.182Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:11:09.782Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:11:58.498Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:12:05.779Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:12:34.320Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 7, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:12:54.816Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:13:01.296Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:13:22.333Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:13:29.773Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:13:51.131Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:13:57.771Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:14:19.290Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:14:25.770Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:14:34.323Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:14:46.808Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:14:53.767Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:15:14.966Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:15:21.766Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:15:43.125Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:15:49.765Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:16:11.285Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:16:17.762Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:16:34.315Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:16:38.802Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:16:45.762Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:17:06.962Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:17:13.759Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:17:49.196Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:17:57.756Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:18:33.354Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:18:34.308Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:18:41.754Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:19:16.871Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:19:25.751Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:20:01.029Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:20:09.749Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:20:34.301Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:20:45.186Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:20:50.386Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:21:25.504Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:21:33.264Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:22:08.382Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:22:13.740Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:22:34.294Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:22:49.339Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:22:57.739Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:23:26.457Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:23:33.257Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:24:01.656Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:24:07.016Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:24:34.287Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:24:35.574Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:24:41.734Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:25:10.131Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:25:17.730Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:25:45.968Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:25:52.928Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:26:21.166Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:26:29.726Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:26:34.280Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:26:58.285Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:27:05.725Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:27:34.124Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:27:41.724Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:28:16.999Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:28:24.199Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:28:34.272Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:28:59.237Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:29:05.717Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:29:40.836Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:29:49.715Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:30:24.992Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:30:33.232Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:30:34.265Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:31:08.510Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:31:13.709Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:31:48.827Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:31:55.787Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:32:31.063Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:32:34.257Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:32:37.704Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:33:15.621Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:33:21.701Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:34:00.019Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:34:05.700Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:34:34.250Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:34:44.175Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:34:49.695Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:35:27.694Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:35:33.214Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:36:11.212Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:36:17.691Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:36:34.244Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:36:56.008Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:37:01.688Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:37:40.166Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:37:45.684Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:38:23.683Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:38:28.803Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:38:34.235Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:38:59.520Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:39:05.680Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:39:35.997Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:39:41.677Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:40:12.474Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:40:17.672Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:40:34.225Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:40:48.309Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:40:53.669Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:41:24.148Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:41:29.667Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:41:59.986Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:42:05.666Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:42:34.217Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:42:36.464Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:42:41.664Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:43:12.303Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:43:17.660Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:43:48.138Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:43:53.658Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:44:04.939Z  WARN watchdog: warp::watchdog: Watchdog reports hung daemon watchdog_name="main loop" hang_count=1 hang_tick=1
+2025-03-13T15:56:42.436Z DEBUG tunnel_loop{protocol="masque" con_id="a9d4ac3167e715d9f740348233b2f1fa6827eecf"}: warp_edge::h3_tun::idle_timeout: Resetting idle timeout on healthy disconnect
+2025-03-13T15:56:42.436Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=a9d4ac3167e715d9f740348233b2f1fa6827eecf}: warp_edge::h3_tun: Stopping MASQUE proxy task without error.
+2025-03-13T15:56:42.436Z DEBUG warp_tun::completion::wrapper: Stopping drive_writer
+2025-03-13T15:56:42.436Z  INFO warp::warp::tunnel: Tunnel connection task driver stopped
+2025-03-13T15:56:42.436Z  WARN main_loop: warp::warp::warp_connection: Connection task experienced error task_name="Tunnel in/out loop" err=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-13T15:56:42.436Z  WARN main_loop: warp::warp_service: Tunnel connection experienced error error=Inflight(TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" })))
+2025-03-13T15:56:42.437Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-13T15:56:42.437Z  INFO main_loop: warp::warp::warp_connection: Stopping Warp Connection dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-13T15:56:42.437Z DEBUG main_loop: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-13T15:56:42.447Z  WARN main_loop: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-13T15:56:42.447Z DEBUG main_loop: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-13T15:56:42.448Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-13T15:56:42.448Z DEBUG actor_connectivity::connectivity: Routes changed:
+DelNeighbour; Destination: 0.0.0.0; 
+DelNeighbour; Destination: 2606:4700::6810:85e5; 
+DelNeighbour; Destination: 2606:4700:4700::1001; 
+DelNeighbour; Destination: 2606:4700::6810:84e5; 
+DelNeighbour; Destination: ff02::2; 
+DelNeighbour; Destination: 2606:4700:4700::1111; 
+DelNeighbour; Destination: 2606:4700:7::a29f:8a41; 
+2025-03-13T15:56:42.457Z DEBUG main_loop: warp::warp::dns_recovery::unix: Reverting Tunnel settings
+2025-03-13T15:56:42.457Z DEBUG main_loop: warp::warp::dns_recovery::unix: Deleted FWMARK rules table with status: Ok(())
+2025-03-13T15:56:42.458Z  WARN main_loop: warp::warp::warp_connection: Cancelled Tunnel task experienced error task_name="tunnel connection driver" err=TunnelError(ConnectionDriverStopped)
+2025-03-13T15:56:42.458Z DEBUG main_loop: warp::warp_service: Reconnecting on connection error error=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-13T15:56:42.534Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:56:42.534Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-13T15:56:42.534Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:56:42.534Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:56:42.534Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:56:42.624Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:56:42.624Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+ power_state=None disconnect_reason=Some(InternalError(Inflight(TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" })))))
+2025-03-13T15:56:42.624Z  WARN main_loop: warp::warp_service: Disconnecting due to runtime error runtime_error=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-13T15:56:42.624Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:56:42.624Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T15:56:42.624Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:56:42.626Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T15:56:42.626Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T15:56:42.626Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T15:56:42.704Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:56:42.704Z  INFO main_loop:handle_command{cmd=Connect}: warp::warp_service: captive_portal_fw_until: Indefinitely
+2025-03-13T15:56:42.706Z DEBUG main_loop:handle_command{cmd=Connect}: warp::warp::proxying_dns: Using auto fallback: true
+2025-03-13T15:56:42.706Z DEBUG main_loop: warp::warp::warp_connection: Current Network: IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T15:56:42.706Z  INFO main_loop: warp::warp::warp_connection: Starting Warp Connection operation_mode=Warp dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-13T15:56:42.706Z  INFO main_loop: warp::warp::tunnel: Initiate WARP connection protocol=Masque
+2025-03-13T15:56:42.706Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:56:42.706Z  INFO main_loop: warp::warp_service: WARP status: Connecting
+2025-03-13T15:56:42.706Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connecting
+2025-03-13T15:56:42.706Z DEBUG firewall::change: Firewall allow tunnel ipv4=[162.159.198.1] ipv6=[2606:4700:103::1]
+2025-03-13T15:56:42.706Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connecting
+2025-03-13T15:56:42.763Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:56:42.764Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Attempting Happy Eyeballs to 162.159.198.1:443 / [2606:4700:103::1]:443
+2025-03-13T15:56:42.764Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Start racer 172.18.0.4:46357 ---> 162.159.198.1:443
+2025-03-13T15:56:42.764Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Creating QUIC Client Config qlog_setting=Disabled idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 }
+2025-03-13T15:56:42.764Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Sending handshake initiation to 162.159.198.1:443
+2025-03-13T15:56:42.764Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v6=[2606:4700:103::1]:443 err=Connect(Os { code: 101, kind: NetworkUnreachable, message: "Network is unreachable" })
+2025-03-13T15:56:47.436Z DEBUG warp_edge::h3_tun: Reporting QUIC Stats after timeout scid=a9d4ac3167e715d9f740348233b2f1fa6827eecf quic_stats_reporter=QuicStatsReporting { audit_stats: QuicAuditStats { recvd_conn_close_transport_error_code: -1, sent_conn_close_transport_error_code: -1, recvd_conn_close_application_error_code: -1, sent_conn_close_application_error_code: -1, transport_handshake_duration_us: 16194, transport_handshake_start: RwLock { data: Some(SystemTime { tv_sec: 1741878392, tv_nsec: 730113519 }), poisoned: false, .. }, connection_close_reason: RwLock { data: None, poisoned: false, .. }, quic_connection_id: [169, 212, 172, 49, 103, 231, 21, 217, 247, 64, 52, 130, 51, 178, 241, 250, 104, 39, 238, 207] }, connection_stats: SocketStats { pmtu: 1350, rtt_us: 6265, cwnd: 18446744073709551615, packets_sent: 3474, packets_recvd: 3684, packets_lost: 13, packets_retrans: 21, bytes_sent: 465827, bytes_recvd: 893484, bytes_lost: 815, bytes_retrans: 353 }, scid: a9d4ac3167e715d9f740348233b2f1fa6827eecf }
+2025-03-13T15:56:47.765Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy eyeballs to 162.159.198.1:443 failed: FailedToEstablishTunnel(Custom { kind: Other, error: Custom { kind: TimedOut, error: "connection c315db054dcf3f7fd959677a20329f6d72028402 timed out" } })
+2025-03-13T15:56:47.765Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v4=162.159.198.1:443 err=FailedToEstablishTunnel(Custom { kind: Other, error: Custom { kind: TimedOut, error: "connection c315db054dcf3f7fd959677a20329f6d72028402 timed out" } })
+2025-03-13T15:56:47.765Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Attempting Happy Eyeballs to 162.159.198.1:500 / [2606:4700:103::1]:500
+2025-03-13T15:56:47.765Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v6=[2606:4700:103::1]:500 err=Connect(Os { code: 101, kind: NetworkUnreachable, message: "Network is unreachable" })
+2025-03-13T15:56:47.816Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Start racer 172.18.0.4:55268 ---> 162.159.198.1:500
+2025-03-13T15:56:47.816Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Creating QUIC Client Config qlog_setting=Disabled idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 }
+2025-03-13T15:56:47.816Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Sending handshake initiation to 162.159.198.1:500
+2025-03-13T15:56:47.878Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Established QUIC connection with 162.159.198.1:500 scid=c3d4d6b856143f9c41079a8944d749691dac1033
+2025-03-13T15:56:47.878Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Establishing MASQUE tunnel on existing QUIC connection scid=c3d4d6b856143f9c41079a8944d749691dac1033 endpoint=162.159.198.1:500
+2025-03-13T15:56:47.878Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=c3d4d6b856143f9c41079a8944d749691dac1033}: warp_edge::h3_tun: Starting MASQUE proxy task idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 } keepalive_interval=4s
+2025-03-13T15:56:48.152Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:56:49.198Z DEBUG main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: Connected to 162.159.198.1:500
+2025-03-13T15:56:49.199Z  INFO main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: DNS resolver connection is being made inside of the tunnel
+2025-03-13T15:56:49.199Z DEBUG firewall::change: Firewall allow interface CloudflareWARP
+2025-03-13T15:56:49.252Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:56:49.262Z DEBUG firewall::change: Firewall allowing private IPs
+2025-03-13T15:56:49.312Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T15:56:49.312Z  INFO main_loop: warp::warp::proxying_dns: Initiate DNS connection
+2025-03-13T15:56:49.314Z DEBUG tunnel_loop{protocol="masque" con_id="c3d4d6b856143f9c41079a8944d749691dac1033"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 1, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T15:56:49.320Z DEBUG main_loop: warp::warp::proxying_dns: DNS TCP connection to Gateway DoH resolver was successful raced_ip=162.159.46.1
+2025-03-13T15:56:49.320Z DEBUG main_loop: dns_proxy::proxy: Creating DoH resolver config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 162.159.36.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 162.159.46.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1111]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1001]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } options=ResolverOpts { ndots: 1, timeout: 4s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: Some(10s), num_concurrent_reqs: 1, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-13T15:56:49.346Z DEBUG main_loop: warp::warp::proxying_dns: Connectivity Check resolved query for connectivity.cloudflareclient.com resolved_ips=[162.159.137.65, 162.159.138.65]
+2025-03-13T15:56:49.346Z DEBUG main_loop: warp::warp::proxying_dns: Acquiring bind semaphore available_permits=1
+2025-03-13T15:56:49.346Z DEBUG main_loop: warp::warp::proxying_dns: Binding UDP and TCP sockets dns_servers=[127.0.2.2, 127.0.2.3]
+2025-03-13T15:56:49.346Z DEBUG main_loop: warp::warp::proxying_dns: Successfully bound DNS listen sockets udp_sockets=2 tcp_sockets=2
+2025-03-13T15:56:49.347Z DEBUG main_loop: warp::warp::proxying_dns: Read system DNS configuration initial_dns_config=(ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }], None) }, ResolverOpts { ndots: 0, timeout: 5s, attempts: 2, rotate: false, check_names: true, edns0: false, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 2, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false })
+2025-03-13T15:56:49.348Z DEBUG main_loop: warp::warp::proxying_dns: Initializing DNS restore settings net.v4_ifaces=[eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)] net.v6_ifaces=[]
+2025-03-13T15:56:49.348Z DEBUG main_loop: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:56:49.348Z DEBUG warp::warp::proxying_dns: Starting DnsOverWarp task tun_address=172.16.0.2:0
+2025-03-13T15:56:49.348Z  INFO dns_proxy::proxy: Default fallbacks configured default_fallback_ips=[127.0.0.11:53] config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } sys_options=ResolverOpts { ndots: 0, timeout: 11s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 8, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-13T15:56:49.349Z DEBUG main_loop: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-13T15:56:49.462Z DEBUG main_loop: dns_proxy::resolver: Ending DoH connection stats=establish_time:2025-03-13 15:56:49.321053439 +00:00:00, ip:162.159.46.1, attempted_queries:1, successful_queries:1, certificate_errors:0, timeout_errors:0, no_connection_errors:0, proto_errors:0, io_errors:0, msg_errors:0
+2025-03-13T15:56:49.464Z DEBUG connectivity_check: Resolved connectivity-check.warp-svc. to [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:56:49.471Z DEBUG connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8a41, 2606:4700:7::a29f:8941, 162.159.137.65, 162.159.138.65]
+2025-03-13T15:56:49.488Z DEBUG do_trace_inner{host="engage.cloudflareclient.com" timeout=4s ips=[162.159.198.1:443] con_check_meta=None}: connectivity_check: fl=582f198
+h=engage.cloudflareclient.com
+ip=210.209.119.91
+ts=1741881409.372
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=010-hkg09
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=off
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-13T15:56:49.497Z DEBUG do_trace_inner{host="connectivity.cloudflareclient.com" timeout=4s ips=[162.159.137.65:443, 162.159.138.65:443] con_check_meta=Some(TunnelInterface { interface_name: "CloudflareWARP" })}: connectivity_check: fl=23f567
+h=connectivity.cloudflareclient.com
+ip=104.28.215.67
+ts=1741881409.38
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=on
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-13T15:56:49.498Z DEBUG main_loop: warp::warp::connectivity_check: Trace status: Ok(TraceResult { metal_id: "23f567", colo: "HKG", ip: 104.28.215.67 })
+2025-03-13T15:56:49.500Z DEBUG main_loop: connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8a41, 2606:4700:7::a29f:8941, 162.159.138.65, 162.159.137.65]
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp::warp_connection: Connect finished
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp::warp_connection: start_status=Ok(())
+2025-03-13T15:56:49.500Z DEBUG actor_statistics: Recording and resetting gauge context=RecordThenResetGaugeInfo { gauge_key: KeyName("conn_attempts_current"), histogram_key: KeyName("conn_attempts_all"), component: "happy_eyeballs" }
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp_service: self.warp future resolved
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T15:56:49.500Z  INFO main_loop: warp::warp_service: WARP status: Connected
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connected
+2025-03-13T15:56:49.500Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connected
+2025-03-13T15:56:52.162Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T15:56:52.163Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+
+2025-03-13T15:56:52.163Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reapplying DNS settings when the list of DNS servers contains ourselves new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:56:52.163Z  INFO main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reinforcing old DNS settings old_info.dns_servers=[127.0.0.11:53] new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53]
+2025-03-13T15:56:52.163Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-13T15:56:52.164Z  WARN main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-13T15:56:52.164Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-13T15:56:52.165Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:56:52.167Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-13T15:56:52.265Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Skip notifying DNS changes as servers was empty or only contained our own advertised IPs. servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T15:56:53.192Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:57:11.832Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:57:16.951Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:57:39.351Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:57:44.951Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:58:06.870Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:58:12.949Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:58:35.027Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:58:40.947Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T15:59:21.556Z  WARN watchdog: warp::watchdog: Watchdog reports hung daemon watchdog_name="main loop" hang_count=2 hang_tick=1
+2025-03-13T15:59:21.556Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=c3d4d6b856143f9c41079a8944d749691dac1033}: warp_edge::h3_tun: Stopping MASQUE proxy task without error.
+2025-03-13T15:59:21.556Z  WARN tunnel_loop{protocol="masque" con_id="c3d4d6b856143f9c41079a8944d749691dac1033"}: warp_edge::h3_tun: Failed to send a shutdown command on drop; tasks may run until completion err=SendError { .. }
+2025-03-13T15:59:21.556Z DEBUG tunnel_loop{protocol="masque" con_id="c3d4d6b856143f9c41079a8944d749691dac1033"}: warp_edge::h3_tun::idle_timeout: Resetting idle timeout on healthy disconnect
+2025-03-13T15:59:21.556Z  INFO warp::warp::tunnel: Tunnel connection task driver stopped
+2025-03-13T15:59:21.556Z DEBUG warp_tun::completion::wrapper: Stopping drive_writer
+2025-03-13T15:59:21.557Z  WARN main_loop: warp::warp::warp_connection: Connection task experienced error task_name="tunnel connection driver" err=TunnelError(ConnectionDriverStopped)
+2025-03-13T15:59:21.557Z  WARN main_loop: warp::warp_service: Tunnel connection experienced error error=Inflight(TunnelError(ConnectionDriverStopped))
+2025-03-13T15:59:21.557Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-13T15:59:21.557Z  INFO main_loop: warp::warp::warp_connection: Stopping Warp Connection dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-13T15:59:21.557Z DEBUG main_loop: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-13T19:00:40.695Z  WARN main_loop: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-13T19:00:40.695Z DEBUG main_loop: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-13T19:00:40.753Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-13T19:00:40.753Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+DelNeighbour; Destination: 0.0.0.0; 
+DelNeighbour; Destination: 2606:4700:4700::1111; 
+DelNeighbour; Destination: 2600:1901:0:47fc::; 
+DelNeighbour; Destination: 2606:4700:7::a29f:8a41; 
+DelNeighbour; Destination: 2606:4700::6810:85e5; 
+DelNeighbour; Destination: 2606:4700:4700::1001; 
+DelNeighbour; Destination: ff02::2; 
+2025-03-13T19:00:40.796Z DEBUG main_loop: warp::warp::dns_recovery::unix: Reverting Tunnel settings
+2025-03-13T19:00:40.796Z DEBUG main_loop: warp::warp::dns_recovery::unix: Deleted FWMARK rules table with status: Ok(())
+2025-03-13T19:00:40.796Z  WARN main_loop: warp::warp::warp_connection: Cancelled Tunnel task experienced error task_name="Tunnel in/out loop" err=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-13T19:00:40.797Z DEBUG main_loop: warp::warp_service: Reconnecting on connection error error=TunnelError(ConnectionDriverStopped)
+2025-03-13T19:00:40.849Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T19:00:40.849Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-13T19:00:40.849Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T19:00:40.849Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T19:00:40.849Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T19:00:40.908Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T19:00:40.908Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+ power_state=None disconnect_reason=Some(InternalError(Inflight(TunnelError(ConnectionDriverStopped))))
+2025-03-13T19:00:40.908Z  WARN main_loop: warp::warp_service: Disconnecting due to runtime error runtime_error=TunnelError(ConnectionDriverStopped)
+2025-03-13T19:00:40.908Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T19:00:40.908Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T19:00:40.909Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T19:00:40.910Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-13T19:00:40.911Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-13T19:00:40.911Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-13T19:00:40.958Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T19:00:40.958Z  INFO main_loop:handle_command{cmd=Connect}: warp::warp_service: captive_portal_fw_until: Indefinitely
+2025-03-13T19:00:40.961Z DEBUG main_loop:handle_command{cmd=Connect}: warp::warp::proxying_dns: Using auto fallback: true
+2025-03-13T19:00:40.961Z DEBUG main_loop: warp::warp::warp_connection: Current Network: IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-13T19:00:40.961Z  INFO main_loop: warp::warp::warp_connection: Starting Warp Connection operation_mode=Warp dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-13T19:00:40.961Z  INFO main_loop: warp::warp::tunnel: Initiate WARP connection protocol=Masque
+2025-03-13T19:00:40.961Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T19:00:40.961Z  INFO main_loop: warp::warp_service: WARP status: Connecting
+2025-03-13T19:00:40.961Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connecting
+2025-03-13T19:00:40.961Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connecting
+2025-03-13T19:00:40.961Z DEBUG firewall::change: Firewall allow tunnel ipv4=[162.159.198.1] ipv6=[2606:4700:103::1]
+2025-03-13T19:00:41.018Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T19:00:41.018Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Attempting Happy Eyeballs to 162.159.198.1:443 / [2606:4700:103::1]:443
+2025-03-13T19:00:41.018Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v6=[2606:4700:103::1]:443 err=Connect(Os { code: 101, kind: NetworkUnreachable, message: "Network is unreachable" })
+2025-03-13T19:00:41.018Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Start racer 172.18.0.4:42865 ---> 162.159.198.1:443
+2025-03-13T19:00:41.019Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Creating QUIC Client Config qlog_setting=Disabled idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 }
+2025-03-13T19:00:41.019Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Sending handshake initiation to 162.159.198.1:443
+2025-03-13T19:00:41.078Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Established QUIC connection with 162.159.198.1:443 scid=9540d2e511729c0895336c2bec5f74169e96afb4
+2025-03-13T19:00:41.078Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=9540d2e511729c0895336c2bec5f74169e96afb4}: warp_edge::h3_tun: Starting MASQUE proxy task idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 } keepalive_interval=4s
+2025-03-13T19:00:41.078Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Establishing MASQUE tunnel on existing QUIC connection scid=9540d2e511729c0895336c2bec5f74169e96afb4 endpoint=162.159.198.1:443
+2025-03-13T19:00:41.841Z DEBUG main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: Connected to 162.159.198.1:443
+2025-03-13T19:00:41.841Z  INFO main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: DNS resolver connection is being made inside of the tunnel
+2025-03-13T19:00:41.844Z DEBUG firewall::change: Firewall allow interface CloudflareWARP
+2025-03-13T19:00:41.918Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T19:00:41.951Z DEBUG firewall::change: Firewall allowing private IPs
+2025-03-13T19:00:42.028Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-13T19:00:42.028Z  INFO main_loop: warp::warp::proxying_dns: Initiate DNS connection
+2025-03-13T19:00:42.029Z DEBUG tunnel_loop{protocol="masque" con_id="9540d2e511729c0895336c2bec5f74169e96afb4"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 1, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-13T19:00:42.046Z DEBUG main_loop: warp::warp::proxying_dns: DNS TCP connection to Gateway DoH resolver was successful raced_ip=162.159.46.1
+2025-03-13T19:00:42.047Z DEBUG main_loop: dns_proxy::proxy: Creating DoH resolver config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 162.159.36.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 162.159.46.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1111]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1001]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } options=ResolverOpts { ndots: 1, timeout: 4s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: Some(10s), num_concurrent_reqs: 1, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-13T19:00:42.140Z DEBUG main_loop: warp::warp::proxying_dns: Connectivity Check resolved query for connectivity.cloudflareclient.com resolved_ips=[162.159.138.65, 162.159.137.65]
+2025-03-13T19:00:42.140Z DEBUG main_loop: warp::warp::proxying_dns: Acquiring bind semaphore available_permits=1
+2025-03-13T19:00:42.140Z DEBUG main_loop: warp::warp::proxying_dns: Binding UDP and TCP sockets dns_servers=[127.0.2.2, 127.0.2.3]
+2025-03-13T19:00:42.140Z DEBUG main_loop: warp::warp::proxying_dns: Successfully bound DNS listen sockets udp_sockets=2 tcp_sockets=2
+2025-03-13T19:00:42.143Z DEBUG main_loop: warp::warp::proxying_dns: Read system DNS configuration initial_dns_config=(ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }], None) }, ResolverOpts { ndots: 0, timeout: 5s, attempts: 2, rotate: false, check_names: true, edns0: false, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 2, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false })
+2025-03-13T19:00:42.143Z DEBUG main_loop: warp::warp::proxying_dns: Initializing DNS restore settings net.v4_ifaces=[eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)] net.v6_ifaces=[]
+2025-03-13T19:00:42.143Z DEBUG main_loop: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T19:00:42.143Z DEBUG warp::warp::proxying_dns: Starting DnsOverWarp task tun_address=172.16.0.2:0
+2025-03-13T19:00:42.143Z  INFO dns_proxy::proxy: Default fallbacks configured default_fallback_ips=[127.0.0.11:53] config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } sys_options=ResolverOpts { ndots: 0, timeout: 11s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 8, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-13T19:00:42.145Z DEBUG main_loop: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-13T19:00:43.110Z  WARN watchdog: warp::watchdog: Watchdog reports hung daemon watchdog_name="main loop" hang_count=3 hang_tick=1
+2025-03-13T19:00:43.204Z DEBUG main_loop: dns_proxy::resolver: Ending DoH connection stats=establish_time:2025-03-13 19:00:42.047377595 +00:00:00, ip:2606:4700:4700::1111, attempted_queries:1, successful_queries:1, certificate_errors:0, timeout_errors:0, no_connection_errors:0, proto_errors:0, io_errors:0, msg_errors:0
+2025-03-13T19:00:43.219Z DEBUG connectivity_check: Resolved connectivity-check.warp-svc. to [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T19:00:43.255Z DEBUG connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8a41, 2606:4700:7::a29f:8941, 162.159.137.65, 162.159.138.65]
+2025-03-13T19:00:43.296Z DEBUG do_trace_inner{host="engage.cloudflareclient.com" timeout=4s ips=[162.159.198.1:443] con_check_meta=None}: connectivity_check: fl=976f117
+h=engage.cloudflareclient.com
+ip=210.209.119.91
+ts=1741892442.537
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=off
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-13T19:00:43.335Z DEBUG do_trace_inner{host="connectivity.cloudflareclient.com" timeout=4s ips=[162.159.137.65:443, 162.159.138.65:443] con_check_meta=Some(TunnelInterface { interface_name: "CloudflareWARP" })}: connectivity_check: fl=583f136
+h=connectivity.cloudflareclient.com
+ip=104.28.215.67
+ts=1741892442.58
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=on
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-13T19:00:43.335Z DEBUG main_loop: warp::warp::connectivity_check: Trace status: Ok(TraceResult { metal_id: "583f136", colo: "HKG", ip: 104.28.215.67 })
+2025-03-13T19:00:43.337Z DEBUG main_loop: connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8a41, 2606:4700:7::a29f:8941, 162.159.137.65, 162.159.138.65]
+2025-03-13T19:00:43.337Z DEBUG main_loop: warp::warp::warp_connection: Connect finished
+2025-03-13T19:00:43.337Z DEBUG main_loop: warp::warp::warp_connection: start_status=Ok(())
+2025-03-13T19:00:43.337Z DEBUG actor_statistics: Recording and resetting gauge context=RecordThenResetGaugeInfo { gauge_key: KeyName("conn_attempts_current"), histogram_key: KeyName("conn_attempts_all"), component: "happy_eyeballs" }
+2025-03-13T19:00:43.338Z DEBUG main_loop: warp::warp_service: self.warp future resolved
+2025-03-13T19:00:43.338Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-13T19:00:43.338Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-13T19:00:43.338Z  INFO main_loop: warp::warp_service: WARP status: Connected
+2025-03-13T19:00:43.338Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connected
+2025-03-13T19:00:43.338Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connected
+2025-03-13T19:00:44.806Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-13T19:00:44.806Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+
+2025-03-13T19:00:44.807Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reapplying DNS settings when the list of DNS servers contains ourselves new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T19:00:44.807Z  INFO main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reinforcing old DNS settings old_info.dns_servers=[127.0.0.11:53] new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53]
+2025-03-13T19:00:44.807Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-13T19:00:44.815Z  WARN main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-13T19:00:44.815Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-13T19:00:44.821Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T19:00:44.829Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-13T19:00:45.527Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Skip notifying DNS changes as servers was empty or only contained our own advertised IPs. servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-13T19:00:45.550Z DEBUG warp_edge::h3_tun: Reporting QUIC Stats after timeout scid=c3d4d6b856143f9c41079a8944d749691dac1033 quic_stats_reporter=QuicStatsReporting { audit_stats: QuicAuditStats { recvd_conn_close_transport_error_code: -1, sent_conn_close_transport_error_code: -1, recvd_conn_close_application_error_code: -1, sent_conn_close_application_error_code: -1, transport_handshake_duration_us: 28604, transport_handshake_start: RwLock { data: Some(SystemTime { tv_sec: 1741881407, tv_nsec: 849697540 }), poisoned: false, .. }, connection_close_reason: RwLock { data: None, poisoned: false, .. }, quic_connection_id: [195, 212, 214, 184, 86, 20, 63, 156, 65, 7, 154, 137, 68, 215, 73, 105, 29, 172, 16, 51] }, connection_stats: SocketStats { pmtu: 1350, rtt_us: 6352, cwnd: 18446744073709551615, packets_sent: 298, packets_recvd: 305, packets_lost: 14, packets_retrans: 21, bytes_sent: 39195, bytes_recvd: 83521, bytes_lost: 857, bytes_retrans: 353 }, scid: c3d4d6b856143f9c41079a8944d749691dac1033 }
+2025-03-13T19:00:45.857Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T19:01:05.697Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T19:01:14.094Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-13T19:01:33.449Z  WARN watchdog: warp::watchdog: Watchdog reports hung daemon watchdog_name="main loop" hang_count=4 hang_tick=1

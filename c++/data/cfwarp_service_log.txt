@@ -1,0 +1,1105 @@
+2025-03-13T19:01:33.449Z DEBUG tunnel_loop{protocol="masque" con_id="9540d2e511729c0895336c2bec5f74169e96afb4"}: warp_edge::h3_tun::idle_timeout: Resetting idle timeout on healthy disconnect
+2025-03-13T19:01:33.449Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=9540d2e511729c0895336c2bec5f74169e96afb4}: warp_edge::h3_tun: Stopping MASQUE proxy task without error.
+2025-03-13T19:01:33.449Z DEBUG warp_tun::completion::wrapper: Stopping drive_writer
+2025-03-13T19:01:33.449Z  INFO warp::warp::tunnel: Tunnel connection task driver stopped
+2025-03-14T14:01:19.469Z DEBUG actor_connectivity::connectivity: Routes changed:
+DelNeighbour; Destination: 0.0.0.0; 
+DelNeighbour; Destination: 2606:4700:4700::1111; 
+DelNeighbour; Destination: 2606:4700:7::a29f:8a41; 
+DelNeighbour; Destination: 2606:4700:4700::1001; 
+DelNeighbour; Destination: ff02::2; 
+DelNeighbour; Destination: 2606:4700::6810:84e5; 
+2025-03-14T14:01:19.481Z  WARN main_loop: warp::warp::warp_connection: Connection task experienced error task_name="Tunnel in/out loop" err=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-14T14:01:19.481Z  WARN main_loop: warp::warp_service: Tunnel connection experienced error error=Inflight(TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" })))
+2025-03-14T14:01:19.481Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-14T14:01:19.481Z  INFO main_loop: warp::warp::warp_connection: Stopping Warp Connection dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-14T14:01:19.482Z DEBUG main_loop: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-14T14:01:19.488Z  WARN main_loop: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-14T14:01:19.488Z DEBUG main_loop: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-14T14:01:19.494Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-14T14:01:19.494Z DEBUG main_loop: warp::warp::dns_recovery::unix: Reverting Tunnel settings
+2025-03-14T14:01:19.494Z DEBUG main_loop: warp::warp::dns_recovery::unix: Deleted FWMARK rules table with status: Ok(())
+2025-03-14T14:01:19.494Z  WARN main_loop: warp::warp::warp_connection: Cancelled Tunnel task experienced error task_name="tunnel connection driver" err=TunnelError(ConnectionDriverStopped)
+2025-03-14T14:01:19.494Z DEBUG main_loop: warp::warp_service: Reconnecting on connection error error=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-14T14:01:19.558Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:19.558Z DEBUG firewall::change: Firewall reset to defaults
+2025-03-14T14:01:19.558Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-14T14:01:19.559Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-14T14:01:19.559Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-14T14:01:19.668Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:19.668Z DEBUG main_loop: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+ power_state=None disconnect_reason=Some(InternalError(Inflight(TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" })))))
+2025-03-14T14:01:19.668Z  WARN main_loop: warp::warp_service: Disconnecting due to runtime error runtime_error=TunnelError(SocketRecv(Custom { kind: BrokenPipe, error: "connection closed" }))
+2025-03-14T14:01:19.668Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-14T14:01:19.669Z  INFO main_loop: warp::warp_service: WARP status: Disconnected(InternalTunnelError("The tunnel encountered an error: Failed to read from the edge socket: connection closed"))
+2025-03-14T14:01:19.669Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Disconnected(InternalTunnelError("The tunnel encountered an error: Failed to read from the edge socket: connection closed"))
+2025-03-14T14:01:19.669Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Disconnected(InternalTunnelError("The tunnel encountered an error: Failed to read from the edge socket: connection closed"))
+2025-03-14T14:01:19.669Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-14T14:01:19.670Z  INFO main_loop:handle_command{cmd=Connect}: warp::warp_service: Delaying connection initiation while system DNS settings restoration completes
+2025-03-14T14:01:22.318Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:01:22.434Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-14T14:01:22.434Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-14T14:01:22.434Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service: Reconnecting after DNS system settings delay 2764 ms
+2025-03-14T14:01:22.434Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-14T14:01:22.434Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-14T14:01:22.434Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-14T14:01:22.538Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:22.539Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service: Determining disconnected reason from connectivity state net_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ power_state=None disconnect_reason=None
+2025-03-14T14:01:22.539Z  WARN main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service: Disconnecting, but reason is unknown
+2025-03-14T14:01:22.539Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-14T14:01:22.541Z DEBUG firewall::change: Firewall allow API ips api_ips=[104.17.143.163, 104.16.80.230, 2606:4700::6810:50e6, 2606:4700::6811:8fa3]
+2025-03-14T14:01:22.541Z DEBUG firewall::change: Changing catch all policy Deny->Deny
+2025-03-14T14:01:22.541Z DEBUG firewall::change: Firewall allow managed network endpoints managed_network_endpoints=[]
+2025-03-14T14:01:22.598Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:22.599Z  INFO main_loop:handle_command{cmd=Connect}: warp::warp_service: captive_portal_fw_until: Indefinitely
+2025-03-14T14:01:22.633Z DEBUG main_loop:handle_command{cmd=Connect}: warp::warp::proxying_dns: Using auto fallback: true
+2025-03-14T14:01:22.633Z DEBUG main_loop: warp::warp::warp_connection: Current Network: IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+
+2025-03-14T14:01:22.633Z  INFO main_loop: warp::warp::warp_connection: Starting Warp Connection operation_mode=Warp dns_mode=DNS Proxy tunnel_mode=Exclude-only Tunnel posture_only=disabled forward_proxy=disabled
+2025-03-14T14:01:22.633Z  INFO main_loop: warp::warp::tunnel: Initiate WARP connection protocol=Masque
+2025-03-14T14:01:22.633Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-14T14:01:22.633Z  INFO main_loop: warp::warp_service: WARP status: Connecting
+2025-03-14T14:01:22.633Z DEBUG firewall::change: Firewall allow tunnel ipv4=[162.159.198.1] ipv6=[2606:4700:103::1]
+2025-03-14T14:01:22.633Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connecting
+2025-03-14T14:01:22.633Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connecting
+2025-03-14T14:01:22.708Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:22.709Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Attempting Happy Eyeballs to 162.159.198.1:443 / [2606:4700:103::1]:443
+2025-03-14T14:01:22.709Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Start racer 172.18.0.4:36372 ---> 162.159.198.1:443
+2025-03-14T14:01:22.709Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Creating QUIC Client Config qlog_setting=Disabled idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 }
+2025-03-14T14:01:22.709Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Sending handshake initiation to 162.159.198.1:443
+2025-03-14T14:01:22.709Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::happy_eyeballs: Happy Eyeballs check failed v6=[2606:4700:103::1]:443 err=Connect(Os { code: 101, kind: NetworkUnreachable, message: "Network is unreachable" })
+2025-03-14T14:01:22.878Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Established QUIC connection with 162.159.198.1:443 scid=b52f34e07533408fc852eae8faf8851608754c4b
+2025-03-14T14:01:22.879Z  INFO main_loop:connect_inner{protocol="masque"}:proxy_task{scid=b52f34e07533408fc852eae8faf8851608754c4b}: warp_edge::h3_tun: Starting MASQUE proxy task idle_timeout=IdleTimeout { idle_duration: IdleDuration(5s), retries: 0 } keepalive_interval=4s
+2025-03-14T14:01:22.879Z DEBUG main_loop:connect_inner{protocol="masque"}: warp_edge::h3_tun: Establishing MASQUE tunnel on existing QUIC connection scid=b52f34e07533408fc852eae8faf8851608754c4b endpoint=162.159.198.1:443
+2025-03-14T14:01:23.882Z  WARN cf_ntp_client::clock: Failed to synchronize time with NTP server err=Synchronization(IOError(Os { code: 1, kind: PermissionDenied, message: "Operation not permitted" }))
+2025-03-14T14:01:24.354Z DEBUG warp_edge::h3_tun: Reporting QUIC Stats after timeout scid=9540d2e511729c0895336c2bec5f74169e96afb4 quic_stats_reporter=QuicStatsReporting { audit_stats: QuicAuditStats { recvd_conn_close_transport_error_code: -1, sent_conn_close_transport_error_code: -1, recvd_conn_close_application_error_code: -1, sent_conn_close_application_error_code: -1, transport_handshake_duration_us: 20216, transport_handshake_start: RwLock { data: Some(SystemTime { tv_sec: 1741892441, tv_nsec: 58785955 }), poisoned: false, .. }, connection_close_reason: RwLock { data: None, poisoned: false, .. }, quic_connection_id: [149, 64, 210, 229, 17, 114, 156, 8, 149, 51, 108, 43, 236, 95, 116, 22, 158, 150, 175, 180] }, connection_stats: SocketStats { pmtu: 1350, rtt_us: 6571, cwnd: 18446744073709551615, packets_sent: 185, packets_recvd: 175, packets_lost: 11, packets_retrans: 17, bytes_sent: 22286, bytes_recvd: 48580, bytes_lost: 704, bytes_retrans: 303 }, scid: 9540d2e511729c0895336c2bec5f74169e96afb4 }
+2025-03-14T14:01:24.527Z DEBUG main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: Connected to 162.159.198.1:443
+2025-03-14T14:01:24.527Z  INFO main_loop:connect_inner{protocol="masque"}: warp::warp::tunnel: DNS resolver connection is being made inside of the tunnel
+2025-03-14T14:01:24.529Z DEBUG firewall::change: Firewall allow interface CloudflareWARP
+2025-03-14T14:01:24.588Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:24.615Z DEBUG firewall::change: Firewall allowing private IPs
+2025-03-14T14:01:24.668Z DEBUG firewall::linux: Firewall rules loaded
+2025-03-14T14:01:24.669Z  INFO main_loop: warp::warp::proxying_dns: Initiate DNS connection
+2025-03-14T14:01:24.670Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 1, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:01:24.681Z DEBUG main_loop: warp::warp::proxying_dns: DNS TCP connection to Gateway DoH resolver was successful raced_ip=2606:4700:4700::1001
+2025-03-14T14:01:24.681Z DEBUG main_loop: dns_proxy::proxy: Creating DoH resolver config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 162.159.36.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 162.159.46.1:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1111]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: [2606:4700:4700::1001]:443, protocol: Https, tls_dns_name: Some("cloudflare-dns.com"), trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } options=ResolverOpts { ndots: 1, timeout: 4s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: Some(10s), num_concurrent_reqs: 1, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-14T14:01:24.845Z DEBUG main_loop: warp::warp::proxying_dns: Connectivity Check resolved query for connectivity.cloudflareclient.com resolved_ips=[162.159.138.65, 162.159.137.65]
+2025-03-14T14:01:24.845Z DEBUG main_loop: warp::warp::proxying_dns: Acquiring bind semaphore available_permits=1
+2025-03-14T14:01:24.845Z DEBUG main_loop: warp::warp::proxying_dns: Binding UDP and TCP sockets dns_servers=[127.0.2.2, 127.0.2.3]
+2025-03-14T14:01:24.845Z DEBUG main_loop: warp::warp::proxying_dns: Successfully bound DNS listen sockets udp_sockets=2 tcp_sockets=2
+2025-03-14T14:01:24.847Z DEBUG main_loop: warp::warp::proxying_dns: Read system DNS configuration initial_dns_config=(ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: false, tls_config: None, bind_addr: None }], None) }, ResolverOpts { ndots: 0, timeout: 5s, attempts: 2, rotate: false, check_names: true, edns0: false, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 2, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false })
+2025-03-14T14:01:24.847Z DEBUG main_loop: warp::warp::proxying_dns: Initializing DNS restore settings net.v4_ifaces=[eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)] net.v6_ifaces=[]
+2025-03-14T14:01:24.847Z DEBUG main_loop: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-14T14:01:24.847Z DEBUG warp::warp::proxying_dns: Starting DnsOverWarp task tun_address=172.16.0.2:0
+2025-03-14T14:01:24.847Z  INFO dns_proxy::proxy: Default fallbacks configured default_fallback_ips=[127.0.0.11:53] config=ResolverConfig { domain: None, search: [], name_servers: NameServerConfigGroup([NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Udp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }, NameServerConfig { socket_addr: 127.0.0.11:53, protocol: Tcp, tls_dns_name: None, trust_negative_responses: true, tls_config: None, bind_addr: None }], None) } sys_options=ResolverOpts { ndots: 0, timeout: 11s, attempts: 0, rotate: false, check_names: true, edns0: true, validate: false, ip_strategy: Ipv4thenIpv6, cache_size: 32, use_hosts_file: true, positive_min_ttl: None, negative_min_ttl: None, positive_max_ttl: None, negative_max_ttl: None, num_concurrent_reqs: 8, preserve_intermediates: true, try_tcp_on_error: false, server_ordering_strategy: QueryStatistics, recursion_desired: true, authentic_data: false, shuffle_dns_servers: false }
+2025-03-14T14:01:24.848Z DEBUG main_loop: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-14T14:01:25.041Z DEBUG main_loop: dns_proxy::resolver: Ending DoH connection stats=establish_time:2025-03-14 14:01:24.681807213 +00:00:00, ip:2606:4700:4700::1111, attempted_queries:1, successful_queries:1, certificate_errors:0, timeout_errors:0, no_connection_errors:0, proto_errors:0, io_errors:0, msg_errors:0
+2025-03-14T14:01:25.043Z DEBUG connectivity_check: Resolved connectivity-check.warp-svc. to [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-14T14:01:25.052Z DEBUG connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8941, 2606:4700:7::a29f:8a41, 162.159.137.65, 162.159.138.65]
+2025-03-14T14:01:25.073Z DEBUG do_trace_inner{host="engage.cloudflareclient.com" timeout=4s ips=[162.159.198.1:443] con_check_meta=None}: connectivity_check: fl=583f115
+h=engage.cloudflareclient.com
+ip=210.209.119.91
+ts=1741960884.78
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=off
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-14T14:01:25.083Z DEBUG do_trace_inner{host="connectivity.cloudflareclient.com" timeout=4s ips=[162.159.137.65:443, 162.159.138.65:443] con_check_meta=Some(TunnelInterface { interface_name: "CloudflareWARP" })}: connectivity_check: fl=976f117
+h=connectivity.cloudflareclient.com
+ip=104.28.215.67
+ts=1741960884.791
+visit_scheme=https
+uag=WARP for Linux
+colo=HKG
+sliver=none
+http=http/1.1
+loc=HK
+tls=TLSv1.3
+sni=plaintext
+warp=on
+gateway=off
+rbi=off
+kex=X25519
+
+2025-03-14T14:01:25.083Z DEBUG main_loop: warp::warp::connectivity_check: Trace status: Ok(TraceResult { metal_id: "976f117", colo: "HKG", ip: 104.28.215.67 })
+2025-03-14T14:01:25.085Z DEBUG main_loop: connectivity_check: Resolved connectivity.cloudflareclient.com to [2606:4700:7::a29f:8941, 2606:4700:7::a29f:8a41, 162.159.137.65, 162.159.138.65]
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp::warp_connection: Connect finished
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp::warp_connection: start_status=Ok(())
+2025-03-14T14:01:25.085Z DEBUG actor_statistics: Recording and resetting gauge context=RecordThenResetGaugeInfo { gauge_key: KeyName("conn_attempts_current"), histogram_key: KeyName("conn_attempts_all"), component: "happy_eyeballs" }
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp_service: self.warp future resolved
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="tunnel_taskset_errors_fut"
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="status_change"
+2025-03-14T14:01:25.085Z  INFO main_loop: warp::warp_service: WARP status: Connected
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp_service::ipc_handlers: Sending IPC status update: Connected
+2025-03-14T14:01:25.085Z DEBUG main_loop: warp::warp_service::ipc_handlers: Ipc Broadcast ResponseStatus: Connected
+2025-03-14T14:01:26.437Z DEBUG main_loop: warp::warp_service: Entering main loop arm arm="main_loop_compat_rx"
+2025-03-14T14:01:26.437Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp_service::actor_compat: Handling network status change old_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.0.11:53
+ new_info=IPv4: [eth0; 172.18.0.4; Ethernet; Gateway: Some(172.18.0.1)], DNS servers:,  127.0.2.2:53,  127.0.2.3:53
+
+2025-03-14T14:01:26.437Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reapplying DNS settings when the list of DNS servers contains ourselves new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-14T14:01:26.437Z  INFO main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Reinforcing old DNS settings old_info.dns_servers=[127.0.0.11:53] new_info.dns_servers=[127.0.2.2:53, 127.0.2.3:53]
+2025-03-14T14:01:26.437Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Reverting DNS settings old_dns=RestoreDNS { action: OverwriteResolv([35, 32, 71, 101, 110, 101, 114, 97, 116, 101, 100, 32, 98, 121, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 46, 10, 35, 32, 84, 104, 105, 115, 32, 102, 105, 108, 101, 32, 99, 97, 110, 32, 98, 101, 32, 101, 100, 105, 116, 101, 100, 59, 32, 68, 111, 99, 107, 101, 114, 32, 69, 110, 103, 105, 110, 101, 32, 119, 105, 108, 108, 32, 110, 111, 116, 32, 109, 97, 107, 101, 32, 102, 117, 114, 116, 104, 101, 114, 32, 99, 104, 97, 110, 103, 101, 115, 32, 111, 110, 99, 101, 32, 105, 116, 10, 35, 32, 104, 97, 115, 32, 98, 101, 101, 110, 32, 109, 111, 100, 105, 102, 105, 101, 100, 46, 10, 10, 110, 97, 109, 101, 115, 101, 114, 118, 101, 114, 32, 49, 50, 55, 46, 48, 46, 48, 46, 49, 49, 10, 111, 112, 116, 105, 111, 110, 115, 32, 110, 100, 111, 116, 115, 58, 48, 10, 10, 35, 32, 66, 97, 115, 101, 100, 32, 111, 110, 32, 104, 111, 115, 116, 32, 102, 105, 108, 101, 58, 32, 39, 47, 101, 116, 99, 47, 114, 101, 115, 111, 108, 118, 46, 99, 111, 110, 102, 39, 32, 40, 105, 110, 116, 101, 114, 110, 97, 108, 32, 114, 101, 115, 111, 108, 118, 101, 114, 41, 10, 35, 32, 69, 120, 116, 83, 101, 114, 118, 101, 114, 115, 58, 32, 91, 49, 57, 50, 46, 49, 54, 56, 46, 54, 53, 46, 55, 93, 10, 35, 32, 79, 118, 101, 114, 114, 105, 100, 101, 115, 58, 32, 91, 93, 10, 35, 32, 79, 112, 116, 105, 111, 110, 32, 110, 100, 111, 116, 115, 32, 102, 114, 111, 109, 58, 32, 105, 110, 116, 101, 114, 110, 97, 108, 10]), resolv_conf_owner: Unknown, os_config_owner: File, previous_nameservers: Some([127.0.0.11]), warp_nameservers: [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3] }
+2025-03-14T14:01:26.439Z  WARN main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: Failed to notify system DNS manager of change. DNS may be broken if systemd-resolved is used owner=Unknown os_config_owner=File err=Failed to restart systemd-resolved
+
+Caused by:
+    org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.systemd1 was not provided by any .service files
+2025-03-14T14:01:26.439Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: DNS settings reverted (<resolv.conf restored>)
+2025-03-14T14:01:26.440Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::dns_recovery::unix: Applying DNS settings [127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-14T14:01:26.442Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: network_info::linux::dns_manager: detected system dns manager file_owner=Unknown os_configuration_owner=File
+2025-03-14T14:01:27.154Z DEBUG main_loop:handle_update{update=NetworkInfoChanged}: warp::warp::proxying_dns: Skip notifying DNS changes as servers was empty or only contained our own advertised IPs. servers=[127.0.2.2:53, 127.0.2.3:53] ADVERTISED_DNS_TARGETS=[127.0.2.2, 127.0.2.3, ::ffff:127.0.2.2, ::ffff:127.0.2.3]
+2025-03-14T14:01:27.756Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:01:47.276Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:01:55.916Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:02:35.275Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:02:43.914Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:03:23.274Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:03:24.666Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 5, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:03:30.472Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:04:09.351Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:04:15.831Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:04:54.790Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:04:59.909Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:05:24.661Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 6, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:05:38.947Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:05:46.467Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:06:25.667Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:06:31.905Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:07:11.102Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:07:17.263Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:07:24.654Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 7, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:07:56.541Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:08:02.539Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:08:27.896Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:08:35.897Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:09:01.175Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:09:07.895Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:09:24.648Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 7, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:09:33.173Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:09:39.894Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:10:05.172Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:10:10.531Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:10:35.890Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:10:43.889Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:11:09.168Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:11:15.888Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:11:24.640Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:11:41.166Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:11:47.886Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:12:13.163Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:12:19.564Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:12:52.843Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:12:59.881Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:13:24.633Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:13:33.158Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:13:39.878Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:14:12.836Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:14:19.877Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:14:53.155Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:14:59.873Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:15:24.626Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:15:32.832Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:15:39.872Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:16:13.150Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:16:19.870Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:16:52.829Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:16:59.867Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:17:24.619Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:17:33.145Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:17:39.865Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:18:23.063Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:18:31.862Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:19:16.181Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:19:22.981Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:19:24.613Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 8, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:20:07.379Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:20:15.858Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:21:03.695Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:21:08.895Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:21:24.607Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:21:54.893Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:22:03.853Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:22:51.211Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:22:59.850Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:23:24.603Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:23:25.130Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:23:31.849Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:23:57.126Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:24:03.846Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:24:29.126Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:24:35.846Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:25:01.125Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:25:07.845Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:25:24.596Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:25:33.123Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:25:39.842Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:26:05.120Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:26:10.480Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:26:35.198Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:26:41.599Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:27:06.557Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:27:11.837Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:27:24.589Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:27:36.635Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:27:42.155Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:28:07.353Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:28:12.393Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:28:35.512Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:28:42.632Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:29:06.230Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:29:11.830Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:29:24.583Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:29:35.028Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:29:43.189Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:30:06.386Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:30:11.826Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:30:35.185Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:30:43.665Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:31:07.183Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:31:13.903Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:31:24.576Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:31:37.262Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:31:43.821Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:32:07.340Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:32:14.460Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:32:38.058Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:32:43.818Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:33:06.857Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:33:14.937Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:33:24.569Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:33:41.015Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:33:47.815Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:34:14.053Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:34:19.813Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:34:46.052Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:34:51.812Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:35:18.050Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:35:23.809Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:35:24.562Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:35:50.048Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:35:55.808Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:36:22.046Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:36:27.805Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:36:54.045Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:36:59.804Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:37:24.556Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 9, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:37:26.044Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:37:31.802Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:37:58.050Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:38:03.800Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:38:33.559Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:38:39.799Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:39:09.717Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:39:15.797Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:39:24.549Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:39:45.555Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:39:51.795Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:40:22.034Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:40:27.792Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:40:57.870Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:41:03.790Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:41:24.543Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:41:33.709Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:41:39.789Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:42:09.547Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:42:15.787Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:42:46.025Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:42:51.785Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:43:21.864Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:43:24.536Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:43:27.782Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:44:02.821Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:44:10.421Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:44:45.699Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:44:50.820Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:45:24.530Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:45:26.018Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:45:31.776Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:46:06.975Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:46:15.775Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:46:51.133Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:46:59.771Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:47:24.524Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:47:35.291Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:47:43.770Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:48:18.808Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:48:27.767Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:49:02.966Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:49:08.086Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:49:24.519Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:49:33.044Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:49:38.324Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:50:03.123Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:50:08.563Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:50:33.201Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:50:38.882Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:51:03.920Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:51:09.210Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:51:24.513Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:51:33.997Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:51:39.357Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:52:04.076Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:52:09.595Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:52:34.795Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:52:39.915Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:53:04.873Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:53:10.233Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:53:24.506Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:53:34.950Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:53:40.470Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:54:19.748Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:54:25.748Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:55:05.184Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:55:10.384Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:55:24.496Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:55:49.982Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:55:55.742Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:56:35.418Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:56:41.819Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:57:21.496Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:57:24.488Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:57:27.174Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:58:06.932Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:58:12.532Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:58:52.370Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:58:57.888Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:59:24.480Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T14:59:37.166Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T14:59:43.246Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:00:18.765Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:00:27.722Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:01:02.920Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:01:10.360Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:01:24.473Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:01:45.798Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:01:51.718Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:02:27.394Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:02:35.714Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:03:10.913Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:03:19.713Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:03:24.465Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:03:55.071Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:04:00.509Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:04:43.707Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:04:51.707Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:05:24.457Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:05:36.183Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:05:43.703Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:06:27.379Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:06:35.699Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:07:18.578Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:07:23.698Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:07:24.450Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:08:09.773Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:08:15.694Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:09:00.970Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:09:07.690Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:09:24.442Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:09:52.169Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:09:59.687Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:10:36.324Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:10:43.684Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:11:20.481Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:11:24.435Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:11:27.680Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:12:04.638Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:12:10.317Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:12:47.516Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:12:55.675Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:13:24.425Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:13:32.312Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:13:39.672Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:14:16.469Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:14:23.669Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:15:00.794Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:15:06.464Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:15:24.416Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 10, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:15:44.143Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:15:51.662Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:16:28.938Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:16:35.658Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:17:13.097Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:17:19.657Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:17:24.410Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:17:57.253Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:18:03.653Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:18:03.655Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:18:41.411Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:18:47.651Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:19:24.400Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:19:24.928Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:19:31.646Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:20:16.124Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:20:23.644Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:21:07.960Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:21:15.640Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:21:24.392Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:22:04.276Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:22:09.956Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:22:55.473Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:23:03.631Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:23:24.384Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:23:51.789Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:23:59.628Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:24:48.105Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:24:55.625Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:25:24.375Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:25:44.421Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:25:51.621Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:26:19.619Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:26:26.897Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:26:54.817Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:27:03.615Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:27:24.366Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:27:31.933Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:27:39.613Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:28:07.781Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:28:12.811Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:28:41.048Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:28:47.609Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:29:15.606Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:29:23.606Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:29:24.358Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:29:51.444Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:29:58.562Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:30:33.041Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:30:39.601Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:31:13.998Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:31:19.598Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:31:24.350Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:31:54.315Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:31:59.596Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:32:33.993Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:32:39.593Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:33:14.311Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:33:19.592Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:33:24.344Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:33:53.989Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:33:59.588Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:34:34.305Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:34:39.585Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:35:13.984Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:35:19.584Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:35:24.336Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:35:54.302Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:35:59.581Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:36:19.260Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:36:27.578Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:36:46.778Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:36:55.578Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:37:14.936Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:37:23.576Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:37:24.328Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:37:43.095Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:37:51.575Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:38:11.252Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:38:18.132Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:38:37.491Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:38:43.571Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:39:03.088Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:39:10.208Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:39:24.321Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:39:29.327Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:39:35.567Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:39:54.927Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:40:03.565Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:40:23.084Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:40:31.563Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:41:02.762Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:41:10.202Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:41:24.315Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:41:41.799Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:41:47.560Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:42:18.918Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:42:27.556Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:42:58.595Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:43:05.634Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:43:24.307Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:43:36.992Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:43:43.552Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:44:14.750Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:44:21.310Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:44:52.508Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:44:59.547Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:45:24.300Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:45:30.905Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:45:36.905Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:46:18.263Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:46:23.543Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:47:04.340Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:47:10.180Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:47:24.292Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:47:55.538Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:48:03.536Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:48:46.735Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:48:53.535Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:49:24.285Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:49:37.931Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:49:43.532Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:50:29.127Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:50:35.527Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:51:20.325Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:51:24.278Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:51:27.524Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:52:01.922Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:52:07.522Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:52:41.599Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:52:47.519Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:53:21.918Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:53:24.270Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:53:27.514Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:54:01.592Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:54:07.512Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:54:41.910Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:54:47.510Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:55:21.587Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:55:24.258Z DEBUG tunnel_loop{protocol="masque" con_id="b52f34e07533408fc852eae8faf8851608754c4b"}: warp_edge::tunnel_loop: Tunnel loop statistics stats=TunnelLoopStats { tun_packet_too_large: 0, edge_packet_too_large: 0, tun_packet_too_small: 0, edge_packet_too_small: 0, tun_packet_martian: 0, tun_packet_unhandled: 11, dropped_edge_packet: 0, dropped_tun_packet: 0, successfully_retried_tun_packet: 0 }
+2025-03-14T15:55:26.786Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:56:01.264Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:56:07.504Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:56:41.581Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+2025-03-14T15:56:47.501Z DEBUG actor_connectivity::connectivity: Routes changed:
+NewNeighbour; Destination: 172.18.0.1; 
+NewNeighbour; Destination: 172.18.0.1; 

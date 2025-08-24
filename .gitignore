@@ -1,0 +1,55 @@
+# General
+.DS_Store
+.env
+.venv
+/venv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.zip
+*.session
+*.session-journal
+settings.zip
+
+# C#
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# C++
+/build/
+*.exe
+*.out
+*.dll
+*.so
+
+# Node.js
+/node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Python
+/python/lab/lab.zip
+/python/lab/media/
+/python/lab/l2tg/
+/python/jobs (2)/v2ray-core/
+/python/jobs (2)/proxy_pool_lab/
+/python/jobs (2)/jobs/
+/python/jobs (2)/indeed/
+/python/jobs (2)/driss/
+/python/JMComic-Crawler-Python/
+/python/manhuagui-downloader/
+/python/manhuagui-downloader - Copy/
+/python.2025.04.26/
+
+# IDE
+.vscode/
+.idea/

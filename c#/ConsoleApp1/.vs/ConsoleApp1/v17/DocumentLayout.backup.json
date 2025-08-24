@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8DCEBE1D-AD70-4FE9-BF99-07723899A821}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\fueqq\\downloads\\eric\\work\\c#\\consoleapp1\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8DCEBE1D-AD70-4FE9-BF99-07723899A821}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C078D8BF-111C-482E-9ED6-AFAAC08C4A54}|ServiceLib\\ServiceLib.csproj|c:\\users\\fueqq\\downloads\\eric\\work\\c#\\consoleapp1\\servicelib\\handler\\speedtesthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C078D8BF-111C-482E-9ED6-AFAAC08C4A54}|ServiceLib\\ServiceLib.csproj|solutionrelative:servicelib\\handler\\speedtesthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C078D8BF-111C-482E-9ED6-AFAAC08C4A54}|ServiceLib\\ServiceLib.csproj|c:\\users\\fueqq\\downloads\\eric\\work\\c#\\consoleapp1\\servicelib\\common\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C078D8BF-111C-482E-9ED6-AFAAC08C4A54}|ServiceLib\\ServiceLib.csproj|solutionrelative:servicelib\\common\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileManager.cs",
+              "DocumentMoniker": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\ServiceLib\\Common\\FileManager.cs",
+              "RelativeDocumentMoniker": "ServiceLib\\Common\\FileManager.cs",
+              "ToolTip": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\ServiceLib\\Common\\FileManager.cs",
+              "RelativeToolTip": "ServiceLib\\Common\\FileManager.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAvwDgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-27T02:08:40.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SpeedtestHandler.cs",
+              "DocumentMoniker": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\ServiceLib\\Handler\\SpeedtestHandler.cs",
+              "RelativeDocumentMoniker": "ServiceLib\\Handler\\SpeedtestHandler.cs",
+              "ToolTip": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\ServiceLib\\Handler\\SpeedtestHandler.cs",
+              "RelativeToolTip": "ServiceLib\\Handler\\SpeedtestHandler.cs",
+              "ViewState": "AgIAALwBAAAAAAAAAAAuwMwBAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T15:26:34.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\ConsoleApp1\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
+              "ToolTip": "C:\\Users\\fueqq\\Downloads\\eric\\work\\c#\\ConsoleApp1\\ConsoleApp1\\Program.cs",
+              "RelativeToolTip": "ConsoleApp1\\Program.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAqwEwAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T04:20:38.453Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

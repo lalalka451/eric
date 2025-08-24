@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>彈珠遊戲</title>
+    <style>
+        .game-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        #skipButton, #speedButton {
+            position: absolute;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        #skipButton {
+            top: 10px;
+            right: 10px;
+            background-color: #ff4444;
+            color: white;
+            display: none;
+        }
+        
+        #speedButton {
+            top: 10px;
+            right: 120px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        #speedButton:hover {
+            background-color: #45a049;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+        
+        .debug-controls {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .debug-controls button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #666;
+            color: white;
+        }
+        
+        .debug-controls button:hover {
+            background-color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <button id="skipButton">跳過回合</button>
+        <button id="speedButton">x1 速度</button>
+        
+        <div class="debug-controls">
+            <button id="spawnExtraBall">Spawn Extra Ball Buff</button>
+            <button id="spawnVerticalLaser">Spawn Vertical Laser Buff</button>
+            <button id="spawnHorizontalLaser">Spawn Horizontal Laser Buff</button>
+            <button id="spawnRandomBounce">Spawn Random Bounce Buff</button>
+        </div>
+    </div>
+    
+    <script>
+        // 獲取Canvas元素
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const skipButton = document.getElementById('skipButton');
+        const speedButton = document.getElementById('speedButton');
+
+        // 遊戲配置
+        const OBSTACLE_CONFIG = {
+            width: 100,
+            height: 40,
+            rowSpacing: 80,
+            startY: 50,
+            moveDownDistance: 60,
+            maxRows: 10,
+            baseHealth: 1,
+            healthIncrement: 1
+        };
+
+        const COLLISION_COOLDOWN = 500;
+
+        // 初始化遊戲狀態
+        let gameState = {
+            isGameOver: false,
+            score: 0
+        };
+
+        // 初始化回合數
+        let round = 1;
+
+        // 初始化球
+        let ball = {
+            x: 400,
+            y: 550,
+            radius: 8,
+            dx: 0,
+            dy: 0,
+            speed: 8,
+            lastCollisionTime: 0
+        };
+
+        // 初始化發射器
+        let launcher = {
+            x: 400,
+            y: 550,
+            angle: 0
+        };
+
+        // 初始化障礙物數組
+        let obstacles = [];
+
+        // 添加速度控制
+        let gameSpeed = 1;
+
+        // Buff configurations
+        const BUFF_TYPES = {
+            EXTRA_BALL: 'extra_ball',
+            LASER_VERTICAL: 'laser_vertical',
+            LASER_HORIZONTAL: 'laser_horizontal',
+            RANDOM_BOUNCE: 'random_bounce'
+        };
+
+        let buffs = [];
+        let extraBalls = [];
+        let extraBallsNextRound = 0;
+        let totalExtraBalls = 0; // Track persistent extra ball count
+
+        // Add these variables to store launch direction
+        let launchDx = 0;
+        let launchDy = 0;
+
+        // Add the toggleSpeed function here
+        function toggleSpeed() {
+            if (gameSpeed === 1) {
+                gameSpeed = 4;
+                speedButton.textContent = 'x4 速度';
+                speedButton.style.backgroundColor = '#FF5722';
+            } else if (gameSpeed === 4) {
+                gameSpeed = 8;
+                speedButton.textContent = 'x8 速度';
+                speedButton.style.backgroundColor = '#FF9800';
+            } else if (gameSpeed === 8) {
+                gameSpeed = 20;
+                speedButton.textContent = 'x20 速度';
+                speedButton.style.backgroundColor = '#FFC107';
+            } else {
+                gameSpeed = 1;
+                speedButton.textContent = 'x1 速度';
+                speedButton.style.backgroundColor = '#4CAF50';
+            }
+        }
+
+        // 檢查重疊
+        function isOverlapping(obstacle1, obstacle2) {
+            return !(obstacle1.x + obstacle1.width < obstacle2.x || 
+                    obstacle1.x > obstacle2.x + obstacle2.width || 
+                    obstacle1.y + obstacle1.height < obstacle2.y || 
+                    obstacle1.y > obstacle2.y + obstacle2.height);
+        }
+
+        // 檢查位置有效性
+        function isValidPosition(newObstacle, existingObstacles) {
+            if (newObstacle.x < 0 || 
+                newObstacle.x + newObstacle.width > canvas.width || 
+                newObstacle.y < 0 || 
+                newObstacle.y + newObstacle.height > canvas.height) {
+                return false;
+            }
+            
+            for (let obstacle of existingObstacles) {
+                if (isOverlapping(newObstacle, obstacle)) {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+
+        // 生成新的一列障礙物
+        function generateNewRow() {
+            const numInRow = 5;
+            let newRow = [];
+            const currentHealth = OBSTACLE_CONFIG.baseHealth + 
+                Math.floor((round - 1) / 2) * OBSTACLE_CONFIG.healthIncrement;
+            
+            // 計算可用空間
+            const totalWidth = canvas.width - 100; // 留出邊緣空間
+            const minSpacing = 40; // 最小間距
+            
+            let attempts = 0;
+            const maxAttempts = 100;
+            
+            while (newRow.length < numInRow && attempts < maxAttempts) {
+                if (Math.random() < 0.8) {  // 增加生成機率
+                    const newObstacle = {
+                        x: Math.random() * (totalWidth - OBSTACLE_CONFIG.width) + 50, // 確保不貼邊
+                        y: OBSTACLE_CONFIG.startY,
+                        width: OBSTACLE_CONFIG.width,
+                        height: OBSTACLE_CONFIG.height,
+                        health: currentHealth
+                    };
+                    
+                    // 檢查與現有障礙物的間距
+                    let validPosition = true;
+                    for (let existing of newRow) {
+                        const distance = Math.abs(existing.x - newObstacle.x);
+                        if (distance < OBSTACLE_CONFIG.width + minSpacing) {
+                            validPosition = false;
+                            break;
+                        }
+                    }
+                    
+                    if (validPosition) {
+                        newRow.push(newObstacle);
+                    }
+                }
+                attempts++;
+            }
+            
+            // Chance to spawn a buff
+            if (Math.random() < 0.3) { // 30% chance to spawn a buff
+                const buffTypeKeys = Object.keys(BUFF_TYPES);
+                const randomBuffType = buffTypeKeys[Math.floor(Math.random() * buffTypeKeys.length)];
+                spawnBuff(BUFF_TYPES[randomBuffType]);
+            }
+            
+            return newRow;
+        }
+
+        // 重置球
+        function resetBall() {
+            ball.x = launcher.x;
+            ball.y = launcher.y;
+            ball.dx = 0;
+            ball.dy = 0;
+        }
+
+        // 移動障礙物
+        function moveObstaclesDown() {
+            obstacles.forEach(obstacle => {
+                obstacle.y += OBSTACLE_CONFIG.moveDownDistance;
+            });
+            
+            // 添加新的一列
+            obstacles.push(...generateNewRow());
+        }
+
+        // 檢查遊戲結束
+        function checkGameOver() {
+            return obstacles.some(obs => obs.y + obs.height >= canvas.height - 50);
+        }
+
+        // 重置遊戲
+        function resetGame() {
+            gameState.isGameOver = false;
+            gameState.score = 0;
+            round = 1;
+            obstacles = generateNewRow();
+            resetBall();
+            totalExtraBalls = 0; // Reset extra ball count
+            // Reset speed
+            gameSpeed = 1;
+            speedButton.textContent = 'x1 速度';
+            speedButton.style.backgroundColor = '#4CAF50';
+        }
+
+        // 添加碰撞檢測函數
+        function checkCollision(ball, obstacle) {
+            // 檢查球的中心是否在障礙物範圍內
+            const closestX = Math.max(obstacle.x, Math.min(ball.x, obstacle.x + obstacle.width));
+            const closestY = Math.max(obstacle.y, Math.min(ball.y, obstacle.y + obstacle.height));
+            
+            // 計算球中心到最近點的距離
+            const distanceX = ball.x - closestX;
+            const distanceY = ball.y - closestY;
+            
+            return (distanceX * distanceX + distanceY * distanceY) <= (ball.radius * ball.radius);
+        }
+
+        // 更新遊戲狀態
+        function update() {
+            if (gameState.isGameOver) return;
+
+            if (checkGameOver()) {
+                gameState.isGameOver = true;
+                return;
+            }
+
+            // 根據遊戲速度更新球的位置
+            ball.x += ball.dx * gameSpeed;
+            ball.y += ball.dy * gameSpeed;
+
+            // 改進牆壁碰撞檢測
+            // 左牆
+            if (ball.x - ball.radius < 0) {
+                ball.x = ball.radius; // 立即修位置
+                ball.dx = Math.abs(ball.dx); // 確保向右彈
+            }
+            //  
+            if (ball.x + ball.radius > canvas.width) {
+                ball.x = canvas.width - ball.radius; // 立即修位置
+                ball.dx = -Math.abs(ball.dx); // 確保向左彈
+            }
+            // 上牆
+            if (ball.y - ball.radius < 0) {
+                ball.y = ball.radius; // 立即修正位置
+                ball.dy = Math.abs(ball.dy); // 確保向下彈
+            }
+
+            // 檢查障礙物碰撞
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                const obstacle = obstacles[i];
+                if (checkCollision(ball, obstacle)) {
+                    // 計算碰撞點
+                    const hitFromTop = ball.y - ball.radius < obstacle.y;
+                    const hitFromBottom = ball.y + ball.radius > obstacle.y + obstacle.height;
+                    const hitFromLeft = ball.x - ball.radius < obstacle.x;
+                    const hitFromRight = ball.x + ball.radius > obstacle.x + obstacle.width;
+
+                    // 根據碰撞方向反彈並修正位置
+                    if (hitFromTop) {
+                        ball.y = obstacle.y - ball.radius;
+                        ball.dy = -Math.abs(ball.dy);
+                    } else if (hitFromBottom) {
+                        ball.y = obstacle.y + obstacle.height + ball.radius;
+                        ball.dy = Math.abs(ball.dy);
+                    }
+                    if (hitFromLeft) {
+                        ball.x = obstacle.x - ball.radius;
+                        ball.dx = -Math.abs(ball.dx);
+                    } else if (hitFromRight) {
+                        ball.x = obstacle.x + obstacle.width + ball.radius;
+                        ball.dx = Math.abs(ball.dx);
+                    }
+
+                    // 減少障礙物生命值
+                    obstacle.health--;
+                    if (obstacle.health <= 0) {
+                        obstacles.splice(i, 1);
+                        gameState.score += 10;
+                    }
+                    break;
+                }
+            }
+
+            // 檢查是否回底部
+            if (ball.y + ball.radius > canvas.height) {
+                resetBall();
+                mainBallReturned = true;
+                
+                // Only start next round if no extra balls are in play
+                if (extraBalls.length === 0) {
+                    mainBallReturned = false;
+                    round++;
+                    moveObstaclesDown();
+                }
+            }
+
+            // Update extra balls
+            extraBalls.forEach((b, index) => {
+                // Update position
+                b.x += b.dx * gameSpeed;
+                b.y += b.dy * gameSpeed;
+
+                // Wall collisions
+                // Left wall
+                if (b.x - b.radius < 0) {
+                    b.x = b.radius;
+                    b.dx = Math.abs(b.dx);
+                }
+                // Right wall
+                if (b.x + b.radius > canvas.width) {
+                    b.x = canvas.width - b.radius;
+                    b.dx = -Math.abs(b.dx);
+                }
+                // Top wall
+                if (b.y - b.radius < 0) {
+                    b.y = b.radius;
+                    b.dy = Math.abs(b.dy);
+                }
+
+                // Obstacle collisions
+                for (let i = obstacles.length - 1; i >= 0; i--) {
+                    const obstacle = obstacles[i];
+                    if (checkCollision(b, obstacle)) {
+                        // Calculate collision direction
+                        const hitFromTop = b.y - b.radius < obstacle.y;
+                        const hitFromBottom = b.y + b.radius > obstacle.y + obstacle.height;
+                        const hitFromLeft = b.x - b.radius < obstacle.x;
+                        const hitFromRight = b.x + b.radius > obstacle.x + obstacle.width;
+
+                        // Bounce based on collision direction
+                        if (hitFromTop) {
+                            b.y = obstacle.y - b.radius;
+                            b.dy = -Math.abs(b.dy);
+                        } else if (hitFromBottom) {
+                            b.y = obstacle.y + obstacle.height + b.radius;
+                            b.dy = Math.abs(b.dy);
+                        }
+                        if (hitFromLeft) {
+                            b.x = obstacle.x - b.radius;
+                            b.dx = -Math.abs(b.dx);
+                        } else if (hitFromRight) {
+                            b.x = obstacle.x + obstacle.width + b.radius;
+                            b.dx = Math.abs(b.dx);
+                        }
+
+                        // Damage obstacle
+                        obstacle.health--;
+                        if (obstacle.health <= 0) {
+                            obstacles.splice(i, 1);
+                            gameState.score += 10;
+                        }
+                        break;
+                    }
+                }
+
+                // Remove ball if it goes off bottom
+                if (b.y + b.radius > canvas.height) {
+                    extraBalls.splice(index, 1);
+                    
+                    // Check if this was the last ball and main ball already returned
+                    if (extraBalls.length === 0 && mainBallReturned) {
+                        mainBallReturned = false;
+                        round++;
+                        moveObstaclesDown();
+                    }
+                }
+            });
+
+            // Check for buff collection
+            for (let i = buffs.length - 1; i >= 0; i--) {
+                const buff = buffs[i];
+                const dx = ball.x - buff.x;
+                const dy = ball.y - buff.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < ball.radius + buff.radius) {
+                    // Apply the buff effect
+                    applyBuff(buff.type);
+                    // Remove the buff from the array
+                    buffs.splice(i, 1);
+                }
+            }
+        }
+
+        // 添加預測線繪製函數
+        function drawPredictionLine() {
+            if (ball.dx !== 0 || ball.dy !== 0) return; // 只在球靜止時顯示預測線
+
+            const virtualBall = {
+                x: ball.x,
+                y: ball.y,
+                radius: ball.radius,
+                dx: Math.cos(launcher.angle) * ball.speed,
+                dy: -Math.sin(launcher.angle) * ball.speed
+            };
+
+            // 開始繪製預測線
+            ctx.beginPath();
+            ctx.moveTo(virtualBall.x, virtualBall.y);
+            ctx.setLineDash([5, 5]); // 使用虛線
+            ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+
+            let hasCollision = false;
+            let steps = 0;
+            const maxSteps = 200; // 預測線最大步數
+            
+            while (!hasCollision && steps < maxSteps) {
+                // 保存上一個位置
+                const prevX = virtualBall.x;
+                const prevY = virtualBall.y;
+
+                // 更新虛擬球位置
+                virtualBall.x += virtualBall.dx;
+                virtualBall.y += virtualBall.dy;
+
+                // 檢查牆壁碰撞
+                if (virtualBall.x - virtualBall.radius < 0) {
+                    virtualBall.x = virtualBall.radius;
+                    virtualBall.dx = Math.abs(virtualBall.dx);
+                    ctx.lineTo(virtualBall.x, virtualBall.y);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(virtualBall.x, virtualBall.y);
+                }
+                if (virtualBall.x + virtualBall.radius > canvas.width) {
+                    virtualBall.x = canvas.width - virtualBall.radius;
+                    virtualBall.dx = -Math.abs(virtualBall.dx);
+                    ctx.lineTo(virtualBall.x, virtualBall.y);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(virtualBall.x, virtualBall.y);
+                }
+                if (virtualBall.y - virtualBall.radius < 0) {
+                    virtualBall.y = virtualBall.radius;
+                    virtualBall.dy = Math.abs(virtualBall.dy);
+                    ctx.lineTo(virtualBall.x, virtualBall.y);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(virtualBall.x, virtualBall.y);
+                }
+
+                // 檢查障礙物碰撞
+                for (let obstacle of obstacles) {
+                    if (checkCollision(virtualBall, obstacle)) {
+                        // 繪製到碰撞點
+                        ctx.lineTo(prevX, prevY);
+                        
+                        // 計算反彈方向
+                        const hitFromTop = prevY + virtualBall.radius <= obstacle.y;
+                        const hitFromBottom = prevY - virtualBall.radius >= obstacle.y + obstacle.height;
+                        
+                        // 繪製反彈後的短線
+                        if (hitFromTop || hitFromBottom) {
+                            virtualBall.dy = -virtualBall.dy;
+                        } else {
+                            virtualBall.dx = -virtualBall.dx;
+                        }
+                        
+                        // 再延伸一小段
+                        ctx.lineTo(
+                            prevX + virtualBall.dx * 5,
+                            prevY + virtualBall.dy * 5
+                        );
+                        
+                        hasCollision = true;
+                        break;
+                    }
+                }
+
+                if (!hasCollision) {
+                    ctx.lineTo(virtualBall.x, virtualBall.y);
+                }
+
+                steps++;
+            }
+            
+            ctx.stroke();
+            ctx.setLineDash([]); // 恢復實線
+        }
+
+        // 繪製遊戲
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 畫預測線
+            if (!gameState.isGameOver && ball.dx === 0 && ball.dy === 0) {
+                drawPredictionLine();
+            }
+
+            // 畫球
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+
+            // 畫障礙物
+            obstacles.forEach(obstacle => {
+                const healthPercent = obstacle.health / 
+                    (OBSTACLE_CONFIG.baseHealth + Math.floor((round - 1) / 2) * OBSTACLE_CONFIG.healthIncrement);
+                
+                const red = Math.floor(255 * (1 - healthPercent));
+                const green = Math.floor(255 * healthPercent);
+                
+                // 添加漸變效果
+                const gradient = ctx.createLinearGradient(
+                    obstacle.x, obstacle.y, 
+                    obstacle.x, obstacle.y + obstacle.height
+                );
+                gradient.addColorStop(0, `rgb(${red}, ${green}, 0)`);
+                gradient.addColorStop(1, `rgb(${Math.min(red + 30, 255)}, ${Math.min(green + 30, 255)}, 30)`);
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                
+                // 添加邊框效果
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                
+                // 繪製生命值
+                ctx.fillStyle = 'white';
+                ctx.font = '20px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(
+                    obstacle.health.toString(),
+                    obstacle.x + obstacle.width / 2,
+                    obstacle.y + obstacle.height / 2
+                );
+            });
+
+            // Draw buffs
+            buffs.forEach(buff => {
+                ctx.beginPath();
+                ctx.arc(buff.x, buff.y, buff.radius, 0, Math.PI * 2);
+                let gradient = ctx.createRadialGradient(buff.x, buff.y, 5, buff.x, buff.y, buff.radius);
+
+                switch(buff.type) {
+                    case BUFF_TYPES.EXTRA_BALL:
+                        gradient.addColorStop(0, '#FFD700'); // Gold color
+                        gradient.addColorStop(1, '#FFA500'); // Orange color
+                        break;
+                    case BUFF_TYPES.LASER_VERTICAL:
+                        gradient.addColorStop(0, '#00FFFF'); // Cyan color
+                        gradient.addColorStop(1, '#0000FF'); // Blue color
+                        break;
+                    case BUFF_TYPES.LASER_HORIZONTAL:
+                        gradient.addColorStop(0, '#FF00FF'); // Magenta color
+                        gradient.addColorStop(1, '#800080'); // Purple color
+                        break;
+                    case BUFF_TYPES.RANDOM_BOUNCE:
+                        gradient.addColorStop(0, '#ADFF2F'); // GreenYellow color
+                        gradient.addColorStop(1, '#32CD32'); // LimeGreen color
+                        break;
+                }
+
+                ctx.fillStyle = gradient;
+                ctx.fill();
+
+                // Optionally, draw an icon or letter representing the buff type
+                ctx.fillStyle = 'white';
+                ctx.font = '16px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                let buffSymbol = '';
+                switch(buff.type) {
+                    case BUFF_TYPES.EXTRA_BALL:
+                        buffSymbol = '+1';
+                        break;
+                    case BUFF_TYPES.LASER_VERTICAL:
+                        buffSymbol = '↕';
+                        break;
+                    case BUFF_TYPES.LASER_HORIZONTAL:
+                        buffSymbol = '↔';
+                        break;
+                    case BUFF_TYPES.RANDOM_BOUNCE:
+                        buffSymbol = '♦';
+                        break;
+                }
+                ctx.fillText(buffSymbol, buff.x, buff.y);
+            });
+
+            // Draw extra balls - make them more visible
+            extraBalls.forEach(b => {
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'green';  // Make sure color is distinct
+                ctx.fill();
+                // Optional: add outline to make more visible
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            });
+
+            // 顯示分數回合數
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillText(`Round: ${round}`, 10, 10);
+            ctx.fillText(`Score: ${gameState.score}`, 10, 40);
+
+            // 顯示當前速度
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.textAlign = 'right';
+            ctx.fillText(`速度: x${gameSpeed}`, canvas.width - 20, 30);
+
+            // 遊戲結束畫面
+            if (gameState.isGameOver) {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = 'white';
+                ctx.font = '48px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('Game Over!', canvas.width/2, canvas.height/2);
+                
+                ctx.font = '24px Arial';
+                ctx.fillText('Click to Restart', canvas.width/2, canvas.height/2 + 50);
+            }
+        }
+
+        // 遊戲循環
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        // 事件監聽
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            launcher.angle = Math.atan2(launcher.y - mouseY, mouseX - launcher.x);
+        });
+
+        canvas.addEventListener('click', (e) => {
+            if (gameState.isGameOver) {
+                resetGame();
+                return;
+            }
+
+            if (ball.dx === 0 && ball.dy === 0) {
+                const angle = launcher.angle;
+                launchDx = Math.cos(angle) * ball.speed;
+                launchDy = -Math.sin(angle) * ball.speed;
+                
+                ball.dx = launchDx;
+                ball.dy = launchDy;
+                
+                // Launch extra balls if we have any
+                if (totalExtraBalls > 0) {
+                    launchExtraBalls(totalExtraBalls);
+                }
+            }
+        });
+
+        skipButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (ball.dx !== 0 || ball.dy !== 0) {
+                resetBall();
+                round++;
+                moveObstaclesDown();
+            }
+        });
+
+        // 添加速度按鈕事件監聽
+        speedButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleSpeed();
+        });
+
+        // 添加鍵盤快捷鍵
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 's' || e.key === 'S') {
+                if (skipButton.style.display === 'block') {
+                    skipRound();
+                }
+            }
+            // 添加速度換快捷鍵 (數字鍵 2)
+            if (e.key === '2') {
+                toggleSpeed();
+            }
+        });
+
+        // 初始遊戲
+        resetGame();
+        gameLoop();
+
+        // Add this function inside your <script> tag, before the event listeners
+        function toggleSpeed() {
+            if (gameSpeed === 1) {
+                gameSpeed = 4;
+                speedButton.textContent = 'x4 速度';
+                speedButton.style.backgroundColor = '#FF5722';
+            } else if (gameSpeed === 4) {
+                gameSpeed = 8;
+                speedButton.textContent = 'x8 速度';
+                speedButton.style.backgroundColor = '#FF9800';
+            } else if (gameSpeed === 8) {
+                gameSpeed = 20;
+                speedButton.textContent = 'x20 速度';
+                speedButton.style.backgroundColor = '#FFC107';
+            } else {
+                gameSpeed = 1;
+                speedButton.textContent = 'x1 速度';
+                speedButton.style.backgroundColor = '#4CAF50';
+            }
+        }
+
+        // Function to apply buffs
+        function applyBuff(buffType) {
+            switch(buffType) {
+                case BUFF_TYPES.EXTRA_BALL:
+                    totalExtraBalls += 1; // Increment persistent count
+                    break;
+                case BUFF_TYPES.LASER_VERTICAL:
+                    fireLaser('vertical');
+                    break;
+                case BUFF_TYPES.LASER_HORIZONTAL:
+                    fireLaser('horizontal');
+                    break;
+                case BUFF_TYPES.RANDOM_BOUNCE:
+                    randomizeBallDirection();
+                    break;
+            }
+        }
+
+        // Function to fire lasers
+        function fireLaser(direction) {
+            if (direction === 'vertical') {
+                // Get random x position for vertical laser
+                const laserX = Math.random() * canvas.width;
+                const laserWidth = 30; // Slightly wider beam
+                
+                // Draw main laser beam
+                ctx.fillStyle = 'rgba(255, 255, 0, 0.7)'; // Bright yellow with less transparency
+                ctx.fillRect(laserX - laserWidth/2, 0, laserWidth, canvas.height);
+                
+                // Add strong glow effect
+                ctx.shadowColor = '#ffff00';
+                ctx.shadowBlur = 30;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'; // Bright core
+                ctx.fillRect(laserX - laserWidth/4, 0, laserWidth/2, canvas.height);
+                
+                // Add edges to show range clearly
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = '#ffff00';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(laserX - laserWidth/2, 0);
+                ctx.lineTo(laserX - laserWidth/2, canvas.height);
+                ctx.moveTo(laserX + laserWidth/2, 0);
+                ctx.lineTo(laserX + laserWidth/2, canvas.height);
+                ctx.stroke();
+                
+                obstacles.forEach((obstacle, index) => {
+                    // Check if obstacle is in laser's path
+                    if (obstacle.x < laserX + laserWidth/2 && 
+                        obstacle.x + obstacle.width > laserX - laserWidth/2) {
+                        // Highlight affected obstacles
+                        ctx.fillStyle = 'rgba(255, 255, 0, 0.3)';
+                        ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                        
+                        obstacle.health -= 1;
+                        if (obstacle.health <= 0) {
+                            obstacles.splice(index, 1);
+                            gameState.score += 10;
+                        }
+                    }
+                });
+            } else if (direction === 'horizontal') {
+                // Get random y position for horizontal laser
+                const laserY = Math.random() * canvas.height;
+                const laserHeight = 30; // Slightly wider beam
+                
+                // Draw main laser beam
+                ctx.fillStyle = 'rgba(255, 255, 0, 0.7)'; // Bright yellow with less transparency
+                ctx.fillRect(0, laserY - laserHeight/2, canvas.width, laserHeight);
+                
+                // Add strong glow effect
+                ctx.shadowColor = '#ffff00';
+                ctx.shadowBlur = 30;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'; // Bright core
+                ctx.fillRect(0, laserY - laserHeight/4, canvas.width, laserHeight/2);
+                
+                // Add edges to show range clearly
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = '#ffff00';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(0, laserY - laserHeight/2);
+                ctx.lineTo(canvas.width, laserY - laserHeight/2);
+                ctx.moveTo(0, laserY + laserHeight/2);
+                ctx.lineTo(canvas.width, laserY + laserHeight/2);
+                ctx.stroke();
+                
+                obstacles.forEach((obstacle, index) => {
+                    // Check if obstacle is in laser's path
+                    if (obstacle.y < laserY + laserHeight/2 && 
+                        obstacle.y + obstacle.height > laserY - laserHeight/2) {
+                        // Highlight affected obstacles
+                        ctx.fillStyle = 'rgba(255, 255, 0, 0.3)';
+                        ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                        
+                        obstacle.health -= 1;
+                        if (obstacle.health <= 0) {
+                            obstacles.splice(index, 1);
+                            gameState.score += 10;
+                        }
+                    }
+                });
+            }
+        }
+
+        // Function for random bounce
+        function randomizeBallDirection() {
+            const randomAngle = Math.random() * Math.PI * 2;
+            ball.dx = Math.cos(randomAngle) * ball.speed;
+            ball.dy = Math.sin(randomAngle) * ball.speed;
+        }
+
+        // Simplify the launchExtraBalls function to create exact copies
+        function launchExtraBalls(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    let newBall = {
+                        x: launcher.x,
+                        y: launcher.y,
+                        radius: ball.radius,
+                        dx: launchDx,  // Use stored launch direction
+                        dy: launchDy,
+                        speed: ball.speed,
+                        lastCollisionTime: 0
+                    };
+                    extraBalls.push(newBall);
+                }, 100 * (i + 1));  // 100ms delay for each ball
+            }
+        }
+
+        // Function to start the next round
+        function startNextRound() {
+            round++;
+            moveObstaclesDown();
+            if (extraBallsNextRound > 0) {
+                launchExtraBalls(extraBallsNextRound);
+                extraBallsNextRound = 0;
+            }
+        }
+
+        // Add buff spawn area configuration
+        const BUFF_SPAWN_CONFIG = {
+            marginX: 50,  // margin from left/right edges
+            marginTop: 50,  // margin from top
+            marginBottom: 200,  // margin from bottom
+            radius: 15  // buff radius
+        };
+
+        // Update the debug spawn buttons
+        document.getElementById('spawnExtraBall').addEventListener('click', () => {
+            spawnBuff(BUFF_TYPES.EXTRA_BALL);
+        });
+
+        document.getElementById('spawnVerticalLaser').addEventListener('click', () => {
+            spawnBuff(BUFF_TYPES.LASER_VERTICAL);
+        });
+
+        document.getElementById('spawnHorizontalLaser').addEventListener('click', () => {
+            spawnBuff(BUFF_TYPES.LASER_HORIZONTAL);
+        });
+
+        document.getElementById('spawnRandomBounce').addEventListener('click', () => {
+            spawnBuff(BUFF_TYPES.RANDOM_BOUNCE);
+        });
+
+        // Add new function to handle buff spawning
+        function spawnBuff(buffType) {
+            const x = Math.random() * (canvas.width - 2 * BUFF_SPAWN_CONFIG.marginX) + BUFF_SPAWN_CONFIG.marginX;
+            const y = Math.random() * (canvas.height - BUFF_SPAWN_CONFIG.marginTop - BUFF_SPAWN_CONFIG.marginBottom) + BUFF_SPAWN_CONFIG.marginTop;
+            
+            buffs.push({
+                type: buffType,
+                x: x,
+                y: y,
+                radius: BUFF_SPAWN_CONFIG.radius
+            });
+        }
+    </script>
+</body>
+</html>
